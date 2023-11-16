@@ -11,4 +11,17 @@ package Class;
 public class Nota {
     public Transaksi transaksi;
     public User user;
+    
+    public Nota(Transaksi transaksi, User user){
+        this.transaksi = transaksi;
+        this.user = user;
+    }
+
+    public Transaksi getTransaksi() {
+        return transaksi;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

@@ -10,4 +10,12 @@ package Class;
  */
 public class Admin {
     public String kode;
+    
+    public Admin(String kode){
+        this.kode = kode;
+    }
+
+    public String getKode() {
+        return kode;
+    }
 }

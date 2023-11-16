@@ -10,4 +10,12 @@ package Class;
  */
 public class User {
     public int saldo;
+    
+    public User(int saldo){
+        this.saldo = saldo;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
 }

@@ -10,4 +10,12 @@ package Class;
  */
 public class TopUp {
     public User user;
+    
+    public TopUp(User user){
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

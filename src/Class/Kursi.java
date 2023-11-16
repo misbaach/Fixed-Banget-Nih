@@ -12,4 +12,22 @@ public class Kursi {
     public Studio studio;
     public int id;
     public int harga;
+
+    public Kursi(int id, int harga, Studio studio){
+        this.id = id;
+        this.harga = harga;
+        this.studio = studio;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Studio getStudio() {
+        return studio;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
 }

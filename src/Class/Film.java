@@ -9,11 +9,33 @@ package Class;
  * @author DAVA RAJIF C
  */
 public class Film {
-    public String nama;
-    public String sinopsis;
-    public Studio studio;
-    public String gambar;
-    public String jadwal;
+    String nama;
+    String sinopsis;
+    String gambar;
+    String jadwal;
+    public Studio[] studio;
+
+    public Film(String nama, String sinopsis, String gambar, String jadwal){
+        this.nama = nama;
+        this.sinopsis = sinopsis;
+        this.gambar = gambar;
+        this.jadwal = jadwal;
+    }
+    public String getNama() {
+        return nama;
+    }
+
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public String getJadwal() {
+        return jadwal;
+    }
     
     
 }

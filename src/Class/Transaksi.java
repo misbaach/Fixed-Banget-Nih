@@ -11,5 +11,23 @@ package Class;
 public class Transaksi {
     public Film film;
     public int totalHarga;
-    public Kursi kuris;
+    public Kursi kursi;
+    
+    public Transaksi(Film film, int totalHarga, Kursi kursi){
+        this.film = film;
+        this.totalHarga = totalHarga;
+        this.kursi = kursi;
+    }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public int getTotalHarga() {
+        return totalHarga;
+    }
+
+    public Kursi getKursi() {
+        return kursi;
+    }
 }

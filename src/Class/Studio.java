@@ -10,5 +10,18 @@ package Class;
  */
 public class Studio {
     public String nama;
-    public String Tempat;
+    public String tempat;
+    
+    public Studio(String nama, String tempat){
+        this.nama = nama;
+        this.tempat = tempat;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getTempat() {
+        return tempat;
+    }
 }
