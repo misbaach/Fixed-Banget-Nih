@@ -8,7 +8,6 @@ package Class;
  *
  * @author ASUS
  */
-public class Studio {
-    public String nama;
-    public String Tempat;
+public class TopUp {
+    public User user;
 }
