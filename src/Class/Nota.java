@@ -8,12 +8,7 @@ package Class;
  *
  * @author DAVA RAJIF C
  */
-public class Film {
-    public String nama;
-    public String sinopsis;
-    public Studio studio;
-    public String gambar;
-    public String jadwal;
-    
-    
+public class Nota {
+    public Transaksi transaksi;
+    public User user;
 }
