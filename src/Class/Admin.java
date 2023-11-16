@@ -8,11 +8,12 @@ package Class;
  *
  * @author Sulthan Daffa
  */
-public class Admin {
+public class Admin extends Login{
     public String kode;
     
-    public Admin(String kode){
-        this.kode = kode;
+    public Admin(String username, String password){
+        super(username, password);
+        kode = "ajsjdha,cmxchgdsjdhb";
     }
 
     public String getKode() {

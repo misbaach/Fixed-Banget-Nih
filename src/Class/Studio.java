@@ -11,10 +11,21 @@ package Class;
 public class Studio {
     public String nama;
     public String tempat;
+    public String jadwal[];
+    public int jumlahJadwal;
     
     public Studio(String nama, String tempat){
         this.nama = nama;
         this.tempat = tempat;
+        this.jadwal = new String[24];
+        this.jumlahJadwal = 0;
+    }
+    
+    public void tambahJadwal(String jadwal){
+        if(jumlahJadwal < 24){
+            this.jadwal[jumlahJadwal] = jadwal;
+            jumlahJadwal++;
+        }
     }
 
     public String getNama() {

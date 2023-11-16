@@ -9,18 +9,35 @@ package Class;
  * @author DAVA RAJIF C
  */
 public class Film {
-    String nama;
-    String sinopsis;
-    String gambar;
-    String jadwal;
-    public Studio[] studio;
+    public String nama;
+    public String sinopsis;
+    public String gambar;
+    public Studio studio[];
+    public int jumlahStudio;
 
-    public Film(String nama, String sinopsis, String gambar, String jadwal){
+    public Film(String nama, String sinopsis, String gambar){
         this.nama = nama;
         this.sinopsis = sinopsis;
         this.gambar = gambar;
-        this.jadwal = jadwal;
+        this.studio = new Studio[3]; 
+        this.jumlahStudio = 0;
     }
+    
+    public void setStudio(String nama, String lokasi){
+        if(jumlahStudio < 3){
+            studio[jumlahStudio] = new Studio(nama, lokasi);
+            jumlahStudio++;
+        }
+    }
+    
+    public void setJadwal(String namaStudio, String Jadwal){
+        for(int i = 0; i < 3; i++){
+            if(studio[i].getNama().equalsIgnoreCase(namaStudio)){
+                studio[i].tambahJadwal(Jadwal);
+            }
+        }
+    }
+    
     public String getNama() {
         return nama;
     }
@@ -32,10 +49,18 @@ public class Film {
     public String getGambar() {
         return gambar;
     }
-
-    public String getJadwal() {
-        return jadwal;
+    
+    public String getJadwalFilm(String namaFilm) {
+        // Loop melalui setiap studio
+        for (int i = 0; i < jumlahStudio; i++) {
+            // Loop melalui setiap jadwal dalam studio
+            for (int j = 0; j < studio[i].jumlahJadwal; j++) {
+                // Jika jadwal tidak kosong dan mengandung nama film
+                if (studio[i].jadwal[j] != null && studio[i].jadwal[j].contains(namaFilm)) {
+                    return studio[i].jadwal[j];
+                }
+            }
+        }
+        return "Jadwal tidak ditemukan";
     }
-    
-    
 }
