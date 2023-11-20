@@ -108,7 +108,7 @@
               <Color blue="62" green="30" red="36" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Trebuchet MS" size="18" style="0"/>
+              <Font name="Trebuchet MS" size="24" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pilih Tempat Duduk"/>
           </Properties>
@@ -592,7 +592,7 @@
                   <Component id="jPanel9" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -623,7 +623,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="139" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>

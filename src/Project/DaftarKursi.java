@@ -93,7 +93,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(54, 48, 98));
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setText("Pilih Tempat Duduk");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -416,7 +416,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(119, 119, 119))
         );
@@ -440,7 +440,7 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

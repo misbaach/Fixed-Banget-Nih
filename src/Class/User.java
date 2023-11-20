@@ -8,10 +8,14 @@ package Class;
  *
  * @author ASUS
  */
-public class User {
+public class User extends Login{
     public int saldo;
     
-    public User(int saldo){
+    public User(String username, String password){
+        super(username, password);
+    }
+
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 
