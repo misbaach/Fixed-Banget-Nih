@@ -10,13 +10,19 @@ package Class;
  */
 public class Transaksi {
     public Film film;
+    public static int idTransaksi;
     public int totalHarga;
     public Kursi kursi;
     
-    public Transaksi(Film film, int totalHarga, Kursi kursi){
+    public Transaksi(){
+        this.idTransaksi = 0;
+    }
+    
+    public void tambahTransaksi(Film film, int totalHarga, Kursi kursi){
         this.film = film;
         this.totalHarga = totalHarga;
         this.kursi = kursi;
+        this.idTransaksi++;
     }
 
     public Film getFilm() {
