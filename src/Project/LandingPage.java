@@ -4,6 +4,10 @@
  */
 package Project;
 
+import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Misbach
@@ -15,6 +19,29 @@ public class LandingPage extends javax.swing.JFrame {
      */
     public LandingPage() {
         initComponents();
+        setGambar();
+    }
+
+    private void setGambar() {
+        // Mengatur ukuran awal label
+        // Pastikan label atau container memiliki ukuran yang mencukupi
+        image1.setPreferredSize(new Dimension(200, 285));
+
+
+// Mengambil gambar dari file
+        String namaFileGambar = "Susuk (1).jpg";
+// Pastikan path file gambar benar
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/" + namaFileGambar));
+
+        Image img = icon.getImage();
+
+// Menyesuaikan ukuran gambar dengan ukuran label
+        Image newImg = img.getScaledInstance(200, 285, Image.SCALE_SMOOTH);
+        ImageIcon newIcon = new ImageIcon(newImg);
+
+// Menetapkan gambar yang telah diubah ukurannya ke label
+        image1.setIcon(newIcon);
+
     }
 
     /**
@@ -31,7 +58,7 @@ public class LandingPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        image1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -58,23 +85,28 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Susuk (1).jpg"))); // NOI18N
+        image1.setForeground(new java.awt.Color(255, 255, 255));
+        image1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                image1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel6)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel6)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
         );
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
@@ -96,7 +128,7 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -321,6 +353,10 @@ public class LandingPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void image1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_image1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_image1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -364,11 +400,11 @@ public class LandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel image1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
