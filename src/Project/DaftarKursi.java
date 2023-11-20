@@ -197,67 +197,72 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         jToggleButton1.setText("A1");
 
-        jToggleButton2.setText("A1");
+        jToggleButton2.setText("A2");
 
-        jToggleButton3.setText("A1");
+        jToggleButton3.setText("A3");
 
-        jToggleButton4.setText("A1");
+        jToggleButton4.setText("A4");
 
-        jToggleButton5.setText("A1");
+        jToggleButton5.setText("A5");
 
-        jToggleButton6.setText("A1");
+        jToggleButton6.setText("A6");
 
-        jToggleButton7.setText("A1");
+        jToggleButton7.setText("A7");
 
-        jToggleButton8.setText("A1");
+        jToggleButton8.setText("A8");
 
-        jToggleButton13.setText("A1");
+        jToggleButton13.setText("B1");
 
-        jToggleButton14.setText("A1");
+        jToggleButton14.setText("B2");
 
-        jToggleButton15.setText("A1");
+        jToggleButton15.setText("B3");
 
-        jToggleButton16.setText("A1");
+        jToggleButton16.setText("B4");
 
-        jToggleButton17.setText("A1");
+        jToggleButton17.setText("B5");
 
-        jToggleButton18.setText("A1");
+        jToggleButton18.setText("B6");
 
-        jToggleButton19.setText("A1");
+        jToggleButton19.setText("B7");
 
-        jToggleButton20.setText("A1");
+        jToggleButton20.setText("B8");
 
-        jToggleButton21.setText("A1");
+        jToggleButton21.setText("C1");
 
-        jToggleButton22.setText("A1");
+        jToggleButton22.setText("C2");
 
-        jToggleButton23.setText("A1");
+        jToggleButton23.setText("C3");
 
-        jToggleButton24.setText("A1");
+        jToggleButton24.setText("C4");
 
-        jToggleButton25.setText("A1");
+        jToggleButton25.setText("C5");
 
-        jToggleButton26.setText("A1");
+        jToggleButton26.setText("C6");
 
-        jToggleButton27.setText("A1");
+        jToggleButton27.setText("C7");
 
-        jToggleButton28.setText("A1");
+        jToggleButton28.setText("C8");
 
-        jToggleButton29.setText("A1");
+        jToggleButton29.setText("D1");
 
-        jToggleButton30.setText("A1");
+        jToggleButton30.setText("D2");
 
-        jToggleButton31.setText("A1");
+        jToggleButton31.setText("D3");
+        jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton31ActionPerformed(evt);
+            }
+        });
 
-        jToggleButton32.setText("A1");
+        jToggleButton32.setText("D4");
 
-        jToggleButton33.setText("A1");
+        jToggleButton33.setText("D5");
 
-        jToggleButton34.setText("A1");
+        jToggleButton34.setText("D6");
 
-        jToggleButton35.setText("A1");
+        jToggleButton35.setText("D7");
 
-        jToggleButton36.setText("A1");
+        jToggleButton36.setText("D8");
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
         jLabel5.setText("LAYAR BIOSKOP");
@@ -483,6 +488,10 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton31ActionPerformed
 
     /**
      * @param args the command line arguments

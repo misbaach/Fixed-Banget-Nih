@@ -386,157 +386,160 @@
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="A8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton14">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton15">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton16">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton17">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton18">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton19">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton20">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="B8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton21">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton22">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton23">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton24">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton25">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton26">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton27">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton28">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="C8"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton29">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton30">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton31">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton31ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton32">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton33">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton34">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D6"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton35">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D7"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton36">
           <Properties>
-            <Property name="text" type="java.lang.String" value="A1"/>
+            <Property name="text" type="java.lang.String" value="D8"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel7">
