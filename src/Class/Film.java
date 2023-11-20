@@ -10,13 +10,17 @@ package Class;
  */
 public class Film {
     public String nama;
+    public String genre;
+    public String durasi;
     public String sinopsis;
     public String gambar;
     public Studio studio[];
     public int jumlahStudio;
 
-    public Film(String nama, String sinopsis, String gambar){
+    public Film(String nama,String genre,String durasi, String sinopsis, String gambar){
         this.nama = nama;
+        this.genre = genre;
+        this.durasi = durasi;
         this.sinopsis = sinopsis;
         this.gambar = gambar;
         this.studio = new Studio[3]; 
