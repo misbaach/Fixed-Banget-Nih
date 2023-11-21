@@ -13,6 +13,7 @@ public class Studio {
     public String tempat;
     public String jadwal[];
     public int jumlahJadwal;
+    public Kursi kursi;
     
     public Studio(String nama, String tempat){
         this.nama = nama;
@@ -20,6 +21,11 @@ public class Studio {
         this.jadwal = new String[24];
         this.jumlahJadwal = 0;
     }
+    
+    public void hargaKursi(int harga){
+        kursi = new Kursi(harga);
+    }
+    
     
     public void tambahJadwal(String jadwal){
         if(jumlahJadwal < 24){
