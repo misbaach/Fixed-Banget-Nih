@@ -603,7 +603,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnMasuk1" max="32767" attributes="0"/>
+                  <Component id="btnBayar" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -619,7 +619,7 @@
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnMasuk1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBayar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -669,7 +669,7 @@
             <Property name="text" type="java.lang.String" value="TEMPAT DUDUK"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnMasuk1">
+        <Component class="javax.swing.JButton" name="btnBayar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="43" green="20" red="13" type="rgb"/>
@@ -680,10 +680,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Masuk"/>
+            <Property name="text" type="java.lang.String" value="BAYAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMasuk1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBayarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -3,18 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Project;
-
+import Class.Film;
 /**
  *
  * @author Misbach
  */
 public class DaftarKursi extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DaftarKursi
-     */
+    Film film;
+    
     public DaftarKursi() {
         initComponents();
+        
+        this.film = film;
     }
 
     /**
@@ -79,7 +80,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnMasuk1 = new javax.swing.JButton();
+        btnBayar = new javax.swing.JButton();
 
         jToggleButton9.setText("A1");
 
@@ -433,13 +434,13 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         jLabel8.setText("TEMPAT DUDUK");
 
-        btnMasuk1.setBackground(new java.awt.Color(19, 32, 67));
-        btnMasuk1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnMasuk1.setForeground(new java.awt.Color(255, 255, 255));
-        btnMasuk1.setText("Masuk");
-        btnMasuk1.addActionListener(new java.awt.event.ActionListener() {
+        btnBayar.setBackground(new java.awt.Color(19, 32, 67));
+        btnBayar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBayar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBayar.setText("BAYAR");
+        btnBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMasuk1ActionPerformed(evt);
+                btnBayarActionPerformed(evt);
             }
         });
 
@@ -459,7 +460,7 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMasuk1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -472,7 +473,7 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnMasuk1)
+                .addComponent(btnBayar)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -511,9 +512,11 @@ public class DaftarKursi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton31ActionPerformed
 
-    private void btnMasuk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasuk1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMasuk1ActionPerformed
+    private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarActionPerformed
+        TransaksiPage bayar = new TransaksiPage(film);
+        bayar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBayarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -551,7 +554,7 @@ public class DaftarKursi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMasuk1;
+    private javax.swing.JButton btnBayar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

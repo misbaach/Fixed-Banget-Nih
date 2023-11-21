@@ -16,6 +16,10 @@ public class LoginPage extends javax.swing.JFrame {
     public LoginPage() {
         initComponents();
     }
+    
+    public void check(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,7 +157,10 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
-        // TODO add your handling code here:
+        check();
+        LandingPage pindah = new LandingPage();
+        pindah.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnMasukActionPerformed
 
     /**
