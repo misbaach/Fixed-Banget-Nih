@@ -22,4 +22,10 @@ public class User extends Login{
     public int getSaldo() {
         return saldo;
     }
+    public void tambahSaldo(int setor){
+        saldo += setor;
+    }
+    public void kurangSaldo(int tarik){
+        saldo -= tarik;
+    }
 }

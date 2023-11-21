@@ -31,7 +31,11 @@ public class Data {
     public void tambahUser(String username, String password){
         if(jumlahUser < 10){
             user[jumlahUser] = new User(username, password);
+            if (user[jumlahUser] instanceof User userInstance) {
+                userInstance.setSaldo(0);
+            }
             jumlahUser++;
+            
         }
     }
 }
