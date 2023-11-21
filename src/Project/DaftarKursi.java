@@ -437,6 +437,11 @@ public class DaftarKursi extends javax.swing.JFrame {
         btnMasuk1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnMasuk1.setForeground(new java.awt.Color(255, 255, 255));
         btnMasuk1.setText("Masuk");
+        btnMasuk1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMasuk1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -505,6 +510,10 @@ public class DaftarKursi extends javax.swing.JFrame {
     private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton31ActionPerformed
+
+    private void btnMasuk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasuk1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMasuk1ActionPerformed
 
     /**
      * @param args the command line arguments
