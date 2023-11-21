@@ -17,7 +17,7 @@ public class Film {
     public Studio studio[];
     public int jumlahStudio;
 
-    public Film(String nama,String genre,String durasi, String sinopsis, String gambar){
+    public Film(String nama, String genre, String durasi, String sinopsis, String gambar){
         this.nama = nama;
         this.genre = genre;
         this.durasi = durasi;
