@@ -7,6 +7,11 @@ package Project;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import Class.Film;
 
 /**
@@ -179,6 +184,13 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 0));
 
+        jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -209,6 +221,13 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
 
+        jPanel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel10MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -238,6 +257,13 @@ public class LandingPage extends javax.swing.JFrame {
         );
 
         jPanel11.setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel12.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel12MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -368,6 +394,35 @@ public class LandingPage extends javax.swing.JFrame {
         pindah.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+       String youtubeURL = "https://youtu.be/6sJRZepIGsk?si=eHt8OsY_rDCUUSrP";
+
+        try {
+            Desktop.getDesktop().browse(new URI(youtubeURL));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            // Penanganan kesalahan jika terjadi masalah saat membuka tautan
+        }                
+    }//GEN-LAST:event_jPanel9MouseClicked
+
+    private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
+        String youtubeURL = "https://youtu.be/CNWdWAK0rOQ?si=bAmUnJjjSSopCepW";
+        try{
+            Desktop.getDesktop().browse(new URI(youtubeURL));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jPanel10MouseClicked
+
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+        String youtubeURL = "https://youtu.be/lP6-9XeEbPc?si=hONbGFZ-Dkh1E9E1";
+        try{
+            Desktop.getDesktop().browse(new URI(youtubeURL));
+        }catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jPanel12MouseClicked
 
     /**
      * @param args the command line arguments
