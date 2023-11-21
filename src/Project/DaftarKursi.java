@@ -22,7 +22,7 @@ public class DaftarKursi extends javax.swing.JFrame {
     
     String kursiDipilih = "";
 
-    private void book(String kursi) {
+   private void book(String kursi) {
     if (kursi != null && !kursi.isEmpty()) {
         if (kursiDipilih.contains(kursi)) {
             kursiDipilih = kursiDipilih.replace(kursi + " ", "");
@@ -30,8 +30,26 @@ public class DaftarKursi extends javax.swing.JFrame {
             kursiDipilih += kursi + " ";
         }
         muncul.setText(kursiDipilih.trim());
+        tampilkanHarga();
     }
 }
+
+    private void tampilkanHarga() {
+        int hargaTotal;
+        if (kursiDipilih.trim().isEmpty()) {
+            hargaTotal = 0;
+        } else {
+            hargaTotal = kursi.harga * kursiDipilih.trim().split(" ").length;
+        }
+        String harga = String.valueOf(hargaTotal);
+        hartot.setText(harga);
+    }
+
+
+
+
+
+
 
 
     @SuppressWarnings("unchecked")
@@ -92,6 +110,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnBayar = new javax.swing.JButton();
+        hartot = new javax.swing.JTextField();
         muncul = new javax.swing.JTextField();
 
         jToggleButton9.setText("A1");
@@ -585,7 +604,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(119, 119, 119))
         );
@@ -611,6 +630,12 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        hartot.setEditable(false);
+        hartot.setBackground(new java.awt.Color(255, 255, 255));
+        hartot.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        hartot.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        hartot.setBorder(null);
+
         muncul.setEditable(false);
         muncul.setBackground(new java.awt.Color(255, 255, 255));
         muncul.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -635,10 +660,12 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(62, 62, 62))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(hartot, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(muncul, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(44, 44, 44))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,13 +674,15 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hartot, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(muncul, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(muncul, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBayar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -668,8 +697,8 @@ public class DaftarKursi extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,10 +732,12 @@ public class DaftarKursi extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
      book("A1");
+     tampilkanHarga();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
     book("A2");
+    tampilkanHarga();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
@@ -858,6 +889,7 @@ public class DaftarKursi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBayar;
+    private javax.swing.JTextField hartot;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
