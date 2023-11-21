@@ -4,6 +4,7 @@
  */
 package Project;
 
+import Class.DaftarFilm;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -13,6 +14,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import Class.Film;
+import java.net.URL;
+import javax.swing.JLabel;
 
 /**
  *
@@ -23,17 +26,42 @@ public class LandingPage extends javax.swing.JFrame {
     /**
      * Creates new form LandingPage
      */
-    Film film;
-    public Film daftarFilm[];
-    
+    public DaftarFilm daftarFilm;
+
     public LandingPage() {
         initComponents();
-      daftarFilm = new Film[3];
+        daftarFilm = new DaftarFilm();
+        filmAwal();
+        tampilGambar();
     }
-    int check(String nama){
-        int index = 0;
-        return index;
+
+    
+    public void filmAwal(){
+        daftarFilm.tambahFilm("", "", "", "", "Susuk (1).jpg");
+        daftarFilm.tambahFilm("", "", "", "", "Titanic (2).jpg");
     }
+
+    public void tampilGambar() {
+        int ke = 1;
+        for (Film gambar : daftarFilm.film) {
+            String nama = gambar.getGambar();
+            URL imageURL = getClass().getResource("/Images/" + nama);
+            ImageIcon icon = new ImageIcon(imageURL);
+            pilihLabel(ke, icon);
+            ke++;
+        }
+    }
+    
+    public void pilihLabel(int ke, ImageIcon icon){
+        switch (ke) {
+            case 1 -> gambar1.setIcon(icon);
+            case 2 -> gambar2.setIcon(icon);
+            case 3 -> gambar3.setIcon(icon);
+            default -> {
+            }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,11 +77,11 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        gambar1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        gambar2 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        gambar3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -84,7 +112,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambar1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addContainerGap(8, Short.MAX_VALUE))
@@ -94,7 +122,7 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gambar1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -108,24 +136,24 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambar2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambar2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel13.setBackground(new java.awt.Color(51, 51, 51));
         jPanel13.setPreferredSize(new java.awt.Dimension(228, 305));
 
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        gambar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gambar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                gambar3MouseClicked(evt);
             }
         });
 
@@ -135,14 +163,14 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambar3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambar3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -153,15 +181,14 @@ public class LandingPage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(582, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,32 +407,32 @@ public class LandingPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       Profile user = new Profile();
-       user.setVisible(true);
-       this.dispose();
+        Profile user = new Profile();
+        user.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        String nama ="";
-        ViewPage pindah = new ViewPage(daftarFilm[check(nama)]);
+    private void gambar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar3MouseClicked
+        String nama = "";
+        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
         pindah.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_gambar3MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-       String youtubeURL = "https://youtu.be/6sJRZepIGsk?si=eHt8OsY_rDCUUSrP";
+        String youtubeURL = "https://youtu.be/6sJRZepIGsk?si=eHt8OsY_rDCUUSrP";
 
         try {
             Desktop.getDesktop().browse(new URI(youtubeURL));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
             // Penanganan kesalahan jika terjadi masalah saat membuka tautan
-        }                
+        }
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
         String youtubeURL = "https://youtu.be/CNWdWAK0rOQ?si=bAmUnJjjSSopCepW";
-        try{
+        try {
             Desktop.getDesktop().browse(new URI(youtubeURL));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
@@ -414,9 +441,9 @@ public class LandingPage extends javax.swing.JFrame {
 
     private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
         String youtubeURL = "https://youtu.be/lP6-9XeEbPc?si=hONbGFZ-Dkh1E9E1";
-        try{
+        try {
             Desktop.getDesktop().browse(new URI(youtubeURL));
-        }catch (IOException | URISyntaxException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jPanel12MouseClicked
@@ -464,14 +491,14 @@ public class LandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel gambar1;
+    private javax.swing.JLabel gambar2;
+    private javax.swing.JLabel gambar3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
