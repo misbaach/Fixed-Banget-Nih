@@ -10,7 +10,7 @@ package Class;
  */
 public class Transaksi {
     public Film film;
-    public static int idTransaksi;
+    public int idTransaksi;
     public int totalHarga;
     public Kursi kursi;
     
