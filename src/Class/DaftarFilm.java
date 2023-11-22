@@ -29,7 +29,7 @@ public class DaftarFilm {
     
     public Film pilih(String nama){
         for(Film cek : film){
-            if(cek.getNama().equals(nama)){
+            if(cek.getNama().equals(nama) || cek.getGambar().equals(nama)){
                 return cek;
             }
         }
