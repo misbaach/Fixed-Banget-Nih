@@ -5,6 +5,7 @@
 package Project;
 import Class.Film;
 import Class.Kursi;
+import javax.swing.JToggleButton;
 /**
  *
  * @author Misbach
@@ -22,17 +23,39 @@ public class DaftarKursi extends javax.swing.JFrame {
     
     String kursiDipilih = "";
 
-   private void book(String kursi) {
-    if (kursi != null && !kursi.isEmpty()) {
-        if (kursiDipilih.contains(kursi)) {
-            kursiDipilih = kursiDipilih.replace(kursi + " ", "");
-        } else {
-            kursiDipilih += kursi + " ";
+    private int pilihan() {
+      String[] kursiArray = kursiDipilih.trim().split(" ");
+      return kursiArray.length;
+  }
+
+    private void book(String kursi) {
+        JToggleButton[] allToggleButtons = {
+            btnA1, btnA2, btnA3, btnA4, btnA5, btnA6, btnA7, btnA8,
+            btnB1, btnB2, btnB3, btnB4, btnB5, btnB6, btnB7, btnB8,
+            btnC1, btnC2, btnC3, btnC4, btnC5, btnC6, btnC7, btnC8,
+            btnD1, btnD2, btnD3, btnD4, btnD5, btnD6, btnD7, btnD8
+        };
+        if (kursi != null && !kursi.isEmpty()) {
+            if (kursiDipilih.contains(kursi)) {
+                kursiDipilih = kursiDipilih.replace(kursi + " ", "");
+            } else {
+                if (pilihan() < 4) {
+                    kursiDipilih += kursi + " ";
+                }
+            }
+            muncul.setText(kursiDipilih.trim());
+            tampilkanHarga();
+
+            int pilihanmu = pilihan();
+            for (JToggleButton button : allToggleButtons) {
+                if (!kursiDipilih.contains(button.getActionCommand())) {
+                    button.setEnabled(pilihanmu < 4);
+                }
+            }
         }
-        muncul.setText(kursiDipilih.trim());
-        tampilkanHarga();
     }
-}
+
+
 
     private void tampilkanHarga() {
         int hargaTotal;
@@ -61,40 +84,40 @@ public class DaftarKursi extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton13 = new javax.swing.JToggleButton();
-        jToggleButton14 = new javax.swing.JToggleButton();
-        jToggleButton15 = new javax.swing.JToggleButton();
-        jToggleButton16 = new javax.swing.JToggleButton();
-        jToggleButton17 = new javax.swing.JToggleButton();
-        jToggleButton18 = new javax.swing.JToggleButton();
-        jToggleButton19 = new javax.swing.JToggleButton();
-        jToggleButton20 = new javax.swing.JToggleButton();
-        jToggleButton21 = new javax.swing.JToggleButton();
-        jToggleButton22 = new javax.swing.JToggleButton();
-        jToggleButton23 = new javax.swing.JToggleButton();
-        jToggleButton24 = new javax.swing.JToggleButton();
-        jToggleButton25 = new javax.swing.JToggleButton();
-        jToggleButton26 = new javax.swing.JToggleButton();
-        jToggleButton27 = new javax.swing.JToggleButton();
-        jToggleButton28 = new javax.swing.JToggleButton();
-        jToggleButton29 = new javax.swing.JToggleButton();
-        jToggleButton30 = new javax.swing.JToggleButton();
-        jToggleButton31 = new javax.swing.JToggleButton();
-        jToggleButton32 = new javax.swing.JToggleButton();
-        jToggleButton33 = new javax.swing.JToggleButton();
-        jToggleButton34 = new javax.swing.JToggleButton();
-        jToggleButton35 = new javax.swing.JToggleButton();
-        jToggleButton36 = new javax.swing.JToggleButton();
+        btnA1 = new javax.swing.JToggleButton();
+        btnA2 = new javax.swing.JToggleButton();
+        btnA3 = new javax.swing.JToggleButton();
+        btnA4 = new javax.swing.JToggleButton();
+        btnA5 = new javax.swing.JToggleButton();
+        btnA6 = new javax.swing.JToggleButton();
+        btnA8 = new javax.swing.JToggleButton();
+        btnB1 = new javax.swing.JToggleButton();
+        btnB2 = new javax.swing.JToggleButton();
+        btnB3 = new javax.swing.JToggleButton();
+        btnB4 = new javax.swing.JToggleButton();
+        btnB5 = new javax.swing.JToggleButton();
+        btnB6 = new javax.swing.JToggleButton();
+        btnB7 = new javax.swing.JToggleButton();
+        btnB8 = new javax.swing.JToggleButton();
+        btnC1 = new javax.swing.JToggleButton();
+        btnC2 = new javax.swing.JToggleButton();
+        btnC3 = new javax.swing.JToggleButton();
+        btnC4 = new javax.swing.JToggleButton();
+        btnC5 = new javax.swing.JToggleButton();
+        btnC6 = new javax.swing.JToggleButton();
+        btnC7 = new javax.swing.JToggleButton();
+        btnC8 = new javax.swing.JToggleButton();
+        btnD1 = new javax.swing.JToggleButton();
+        btnD2 = new javax.swing.JToggleButton();
+        btnD3 = new javax.swing.JToggleButton();
+        btnD4 = new javax.swing.JToggleButton();
+        btnD5 = new javax.swing.JToggleButton();
+        btnD6 = new javax.swing.JToggleButton();
+        btnD7 = new javax.swing.JToggleButton();
+        btnD8 = new javax.swing.JToggleButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jToggleButton37 = new javax.swing.JToggleButton();
+        btnA7 = new javax.swing.JToggleButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -198,263 +221,282 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jToggleButton1.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("A1");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnA1.setBackground(new java.awt.Color(19, 32, 67));
+        btnA1.setForeground(new java.awt.Color(255, 255, 255));
+        btnA1.setText("A1");
+        btnA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnA1ActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("A2");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnA2.setBackground(new java.awt.Color(19, 32, 67));
+        btnA2.setForeground(new java.awt.Color(255, 255, 255));
+        btnA2.setText("A2");
+        btnA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                btnA2ActionPerformed(evt);
             }
         });
 
-        jToggleButton3.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setText("A3");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnA3.setBackground(new java.awt.Color(19, 32, 67));
+        btnA3.setForeground(new java.awt.Color(255, 255, 255));
+        btnA3.setText("A3");
+        btnA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                btnA3ActionPerformed(evt);
             }
         });
 
-        jToggleButton4.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton4.setText("A4");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnA4.setBackground(new java.awt.Color(19, 32, 67));
+        btnA4.setForeground(new java.awt.Color(255, 255, 255));
+        btnA4.setText("A4");
+        btnA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
+                btnA4ActionPerformed(evt);
             }
         });
 
-        jToggleButton5.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton5.setText("A5");
-        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnA5.setBackground(new java.awt.Color(19, 32, 67));
+        btnA5.setForeground(new java.awt.Color(255, 255, 255));
+        btnA5.setText("A5");
+        btnA5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton5ActionPerformed(evt);
+                btnA5ActionPerformed(evt);
             }
         });
 
-        jToggleButton6.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton6.setText("A6");
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnA6.setBackground(new java.awt.Color(19, 32, 67));
+        btnA6.setForeground(new java.awt.Color(255, 255, 255));
+        btnA6.setText("A6");
+        btnA6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                btnA6ActionPerformed(evt);
             }
         });
 
-        jToggleButton8.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton8.setText("A8");
-        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnA8.setBackground(new java.awt.Color(19, 32, 67));
+        btnA8.setForeground(new java.awt.Color(255, 255, 255));
+        btnA8.setText("A8");
+        btnA8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton8ActionPerformed(evt);
+                btnA8ActionPerformed(evt);
             }
         });
 
-        jToggleButton13.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton13.setText("B1");
-        jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnB1.setBackground(new java.awt.Color(19, 32, 67));
+        btnB1.setForeground(new java.awt.Color(255, 255, 255));
+        btnB1.setText("B1");
+        btnB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton13ActionPerformed(evt);
+                btnB1ActionPerformed(evt);
             }
         });
 
-        jToggleButton14.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton14.setText("B2");
-        jToggleButton14.addActionListener(new java.awt.event.ActionListener() {
+        btnB2.setBackground(new java.awt.Color(19, 32, 67));
+        btnB2.setForeground(new java.awt.Color(255, 255, 255));
+        btnB2.setText("B2");
+        btnB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton14ActionPerformed(evt);
+                btnB2ActionPerformed(evt);
             }
         });
 
-        jToggleButton15.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton15.setText("B3");
-        jToggleButton15.addActionListener(new java.awt.event.ActionListener() {
+        btnB3.setBackground(new java.awt.Color(19, 32, 67));
+        btnB3.setForeground(new java.awt.Color(255, 255, 255));
+        btnB3.setText("B3");
+        btnB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton15ActionPerformed(evt);
+                btnB3ActionPerformed(evt);
             }
         });
 
-        jToggleButton16.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton16.setText("B4");
-        jToggleButton16.addActionListener(new java.awt.event.ActionListener() {
+        btnB4.setBackground(new java.awt.Color(19, 32, 67));
+        btnB4.setForeground(new java.awt.Color(255, 255, 255));
+        btnB4.setText("B4");
+        btnB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton16ActionPerformed(evt);
+                btnB4ActionPerformed(evt);
             }
         });
 
-        jToggleButton17.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton17.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton17.setText("B5");
-        jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnB5.setBackground(new java.awt.Color(19, 32, 67));
+        btnB5.setForeground(new java.awt.Color(255, 255, 255));
+        btnB5.setText("B5");
+        btnB5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton17ActionPerformed(evt);
+                btnB5ActionPerformed(evt);
             }
         });
 
-        jToggleButton18.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton18.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton18.setText("B6");
-        jToggleButton18.addActionListener(new java.awt.event.ActionListener() {
+        btnB6.setBackground(new java.awt.Color(19, 32, 67));
+        btnB6.setForeground(new java.awt.Color(255, 255, 255));
+        btnB6.setText("B6");
+        btnB6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton18ActionPerformed(evt);
+                btnB6ActionPerformed(evt);
             }
         });
 
-        jToggleButton19.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton19.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton19.setText("B7");
-        jToggleButton19.addActionListener(new java.awt.event.ActionListener() {
+        btnB7.setBackground(new java.awt.Color(19, 32, 67));
+        btnB7.setForeground(new java.awt.Color(255, 255, 255));
+        btnB7.setText("B7");
+        btnB7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton19ActionPerformed(evt);
+                btnB7ActionPerformed(evt);
             }
         });
 
-        jToggleButton20.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton20.setText("B8");
-        jToggleButton20.addActionListener(new java.awt.event.ActionListener() {
+        btnB8.setBackground(new java.awt.Color(19, 32, 67));
+        btnB8.setForeground(new java.awt.Color(255, 255, 255));
+        btnB8.setText("B8");
+        btnB8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton20ActionPerformed(evt);
+                btnB8ActionPerformed(evt);
             }
         });
 
-        jToggleButton21.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton21.setText("C1");
-        jToggleButton21.addActionListener(new java.awt.event.ActionListener() {
+        btnC1.setBackground(new java.awt.Color(19, 32, 67));
+        btnC1.setForeground(new java.awt.Color(255, 255, 255));
+        btnC1.setText("C1");
+        btnC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton21ActionPerformed(evt);
+                btnC1ActionPerformed(evt);
             }
         });
 
-        jToggleButton22.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton22.setText("C2");
-        jToggleButton22.addActionListener(new java.awt.event.ActionListener() {
+        btnC2.setBackground(new java.awt.Color(19, 32, 67));
+        btnC2.setForeground(new java.awt.Color(255, 255, 255));
+        btnC2.setText("C2");
+        btnC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton22ActionPerformed(evt);
+                btnC2ActionPerformed(evt);
             }
         });
 
-        jToggleButton23.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton23.setText("C3");
-        jToggleButton23.addActionListener(new java.awt.event.ActionListener() {
+        btnC3.setBackground(new java.awt.Color(19, 32, 67));
+        btnC3.setForeground(new java.awt.Color(255, 255, 255));
+        btnC3.setText("C3");
+        btnC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton23ActionPerformed(evt);
+                btnC3ActionPerformed(evt);
             }
         });
 
-        jToggleButton24.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton24.setText("C4");
-        jToggleButton24.addActionListener(new java.awt.event.ActionListener() {
+        btnC4.setBackground(new java.awt.Color(19, 32, 67));
+        btnC4.setForeground(new java.awt.Color(255, 255, 255));
+        btnC4.setText("C4");
+        btnC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton24ActionPerformed(evt);
+                btnC4ActionPerformed(evt);
             }
         });
 
-        jToggleButton25.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton25.setText("C5");
-        jToggleButton25.addActionListener(new java.awt.event.ActionListener() {
+        btnC5.setBackground(new java.awt.Color(19, 32, 67));
+        btnC5.setForeground(new java.awt.Color(255, 255, 255));
+        btnC5.setText("C5");
+        btnC5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton25ActionPerformed(evt);
+                btnC5ActionPerformed(evt);
             }
         });
 
-        jToggleButton26.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton26.setText("C6");
-        jToggleButton26.addActionListener(new java.awt.event.ActionListener() {
+        btnC6.setBackground(new java.awt.Color(19, 32, 67));
+        btnC6.setForeground(new java.awt.Color(255, 255, 255));
+        btnC6.setText("C6");
+        btnC6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton26ActionPerformed(evt);
+                btnC6ActionPerformed(evt);
             }
         });
 
-        jToggleButton27.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton27.setText("C7");
-        jToggleButton27.addActionListener(new java.awt.event.ActionListener() {
+        btnC7.setBackground(new java.awt.Color(19, 32, 67));
+        btnC7.setForeground(new java.awt.Color(255, 255, 255));
+        btnC7.setText("C7");
+        btnC7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton27ActionPerformed(evt);
+                btnC7ActionPerformed(evt);
             }
         });
 
-        jToggleButton28.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton28.setText("C8");
-        jToggleButton28.addActionListener(new java.awt.event.ActionListener() {
+        btnC8.setBackground(new java.awt.Color(19, 32, 67));
+        btnC8.setForeground(new java.awt.Color(255, 255, 255));
+        btnC8.setText("C8");
+        btnC8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton28ActionPerformed(evt);
+                btnC8ActionPerformed(evt);
             }
         });
 
-        jToggleButton29.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton29.setText("D1");
-        jToggleButton29.addActionListener(new java.awt.event.ActionListener() {
+        btnD1.setBackground(new java.awt.Color(19, 32, 67));
+        btnD1.setForeground(new java.awt.Color(255, 255, 255));
+        btnD1.setText("D1");
+        btnD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton29ActionPerformed(evt);
+                btnD1ActionPerformed(evt);
             }
         });
 
-        jToggleButton30.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton30.setText("D2");
-        jToggleButton30.addActionListener(new java.awt.event.ActionListener() {
+        btnD2.setBackground(new java.awt.Color(19, 32, 67));
+        btnD2.setForeground(new java.awt.Color(255, 255, 255));
+        btnD2.setText("D2");
+        btnD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton30ActionPerformed(evt);
+                btnD2ActionPerformed(evt);
             }
         });
 
-        jToggleButton31.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton31.setText("D3");
-        jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
+        btnD3.setBackground(new java.awt.Color(19, 32, 67));
+        btnD3.setForeground(new java.awt.Color(255, 255, 255));
+        btnD3.setText("D3");
+        btnD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton31ActionPerformed(evt);
+                btnD3ActionPerformed(evt);
             }
         });
 
-        jToggleButton32.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton32.setText("D4");
-        jToggleButton32.addActionListener(new java.awt.event.ActionListener() {
+        btnD4.setBackground(new java.awt.Color(19, 32, 67));
+        btnD4.setForeground(new java.awt.Color(255, 255, 255));
+        btnD4.setText("D4");
+        btnD4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton32ActionPerformed(evt);
+                btnD4ActionPerformed(evt);
             }
         });
 
-        jToggleButton33.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton33.setText("D5");
-        jToggleButton33.addActionListener(new java.awt.event.ActionListener() {
+        btnD5.setBackground(new java.awt.Color(19, 32, 67));
+        btnD5.setForeground(new java.awt.Color(255, 255, 255));
+        btnD5.setText("D5");
+        btnD5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton33ActionPerformed(evt);
+                btnD5ActionPerformed(evt);
             }
         });
 
-        jToggleButton34.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton34.setText("D6");
-        jToggleButton34.addActionListener(new java.awt.event.ActionListener() {
+        btnD6.setBackground(new java.awt.Color(19, 32, 67));
+        btnD6.setForeground(new java.awt.Color(255, 255, 255));
+        btnD6.setText("D6");
+        btnD6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton34ActionPerformed(evt);
+                btnD6ActionPerformed(evt);
             }
         });
 
-        jToggleButton35.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton35.setText("D7");
-        jToggleButton35.addActionListener(new java.awt.event.ActionListener() {
+        btnD7.setBackground(new java.awt.Color(19, 32, 67));
+        btnD7.setForeground(new java.awt.Color(255, 255, 255));
+        btnD7.setText("D7");
+        btnD7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton35ActionPerformed(evt);
+                btnD7ActionPerformed(evt);
             }
         });
 
-        jToggleButton36.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton36.setText("D8");
-        jToggleButton36.addActionListener(new java.awt.event.ActionListener() {
+        btnD8.setBackground(new java.awt.Color(19, 32, 67));
+        btnD8.setForeground(new java.awt.Color(255, 255, 255));
+        btnD8.setText("D8");
+        btnD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton36ActionPerformed(evt);
+                btnD8ActionPerformed(evt);
             }
         });
 
@@ -478,12 +520,12 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jToggleButton37.setBackground(new java.awt.Color(19, 32, 67));
-        jToggleButton37.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton37.setText("A7");
-        jToggleButton37.addActionListener(new java.awt.event.ActionListener() {
+        btnA7.setBackground(new java.awt.Color(19, 32, 67));
+        btnA7.setForeground(new java.awt.Color(255, 255, 255));
+        btnA7.setText("A7");
+        btnA7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton37ActionPerformed(evt);
+                btnA7ActionPerformed(evt);
             }
         });
 
@@ -496,69 +538,69 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
+                        .addComponent(btnA1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton2)
+                        .addComponent(btnA2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton3)
+                        .addComponent(btnA3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton4)
+                        .addComponent(btnA4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(jToggleButton5)
+                        .addComponent(btnA5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton6)
+                        .addComponent(btnA6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton37)
+                        .addComponent(btnA7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton8))
+                        .addComponent(btnA8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jToggleButton13)
+                        .addComponent(btnB1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton14)
+                        .addComponent(btnB2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton15)
+                        .addComponent(btnB3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton16)
+                        .addComponent(btnB4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton17)
+                        .addComponent(btnB5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton18)
+                        .addComponent(btnB6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton19)
+                        .addComponent(btnB7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton20))
+                        .addComponent(btnB8))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jToggleButton21)
+                        .addComponent(btnC1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton22)
+                        .addComponent(btnC2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton23)
+                        .addComponent(btnC3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton24)
+                        .addComponent(btnC4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton25)
+                        .addComponent(btnC5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton26)
+                        .addComponent(btnC6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton27)
+                        .addComponent(btnC7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton28))
+                        .addComponent(btnC8))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jToggleButton29)
+                        .addComponent(btnD1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton30)
+                        .addComponent(btnD2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton31)
+                        .addComponent(btnD3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton32)
+                        .addComponent(btnD4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton33)
+                        .addComponent(btnD5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton34)
+                        .addComponent(btnD6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton35)
+                        .addComponent(btnD7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton36)))
+                        .addComponent(btnD8)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -566,44 +608,44 @@ public class DaftarKursi extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3)
-                    .addComponent(jToggleButton4)
-                    .addComponent(jToggleButton5)
-                    .addComponent(jToggleButton6)
-                    .addComponent(jToggleButton8)
-                    .addComponent(jToggleButton37))
+                    .addComponent(btnA1)
+                    .addComponent(btnA2)
+                    .addComponent(btnA3)
+                    .addComponent(btnA4)
+                    .addComponent(btnA5)
+                    .addComponent(btnA6)
+                    .addComponent(btnA8)
+                    .addComponent(btnA7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton13)
-                    .addComponent(jToggleButton14)
-                    .addComponent(jToggleButton15)
-                    .addComponent(jToggleButton16)
-                    .addComponent(jToggleButton17)
-                    .addComponent(jToggleButton18)
-                    .addComponent(jToggleButton19)
-                    .addComponent(jToggleButton20))
+                    .addComponent(btnB1)
+                    .addComponent(btnB2)
+                    .addComponent(btnB3)
+                    .addComponent(btnB4)
+                    .addComponent(btnB5)
+                    .addComponent(btnB6)
+                    .addComponent(btnB7)
+                    .addComponent(btnB8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton21)
-                    .addComponent(jToggleButton22)
-                    .addComponent(jToggleButton23)
-                    .addComponent(jToggleButton24)
-                    .addComponent(jToggleButton25)
-                    .addComponent(jToggleButton26)
-                    .addComponent(jToggleButton27)
-                    .addComponent(jToggleButton28))
+                    .addComponent(btnC1)
+                    .addComponent(btnC2)
+                    .addComponent(btnC3)
+                    .addComponent(btnC4)
+                    .addComponent(btnC5)
+                    .addComponent(btnC6)
+                    .addComponent(btnC7)
+                    .addComponent(btnC8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton29)
-                    .addComponent(jToggleButton30)
-                    .addComponent(jToggleButton31)
-                    .addComponent(jToggleButton32)
-                    .addComponent(jToggleButton33)
-                    .addComponent(jToggleButton34)
-                    .addComponent(jToggleButton35)
-                    .addComponent(jToggleButton36))
+                    .addComponent(btnD1)
+                    .addComponent(btnD2)
+                    .addComponent(btnD3)
+                    .addComponent(btnD4)
+                    .addComponent(btnD5)
+                    .addComponent(btnD6)
+                    .addComponent(btnD7)
+                    .addComponent(btnD8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -731,9 +773,9 @@ public class DaftarKursi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton31ActionPerformed
+    private void btnD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD3ActionPerformed
+        book("D3");
+    }//GEN-LAST:event_btnD3ActionPerformed
 
     private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarActionPerformed
         TransaksiPage bayar = new TransaksiPage(film);
@@ -741,131 +783,137 @@ public class DaftarKursi extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBayarActionPerformed
 
-    private void jToggleButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton18ActionPerformed
+    private void btnB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB6ActionPerformed
+        book("B6");
+    }//GEN-LAST:event_btnB6ActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void btnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA1ActionPerformed
      book("A1");
      tampilkanHarga();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+     
+    }//GEN-LAST:event_btnA1ActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void btnA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA2ActionPerformed
     book("A2");
     tampilkanHarga();
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    
+    }//GEN-LAST:event_btnA2ActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+    private void btnA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA3ActionPerformed
     book("A3");
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    
+    }//GEN-LAST:event_btnA3ActionPerformed
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+    private void btnA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA4ActionPerformed
+    book("A4");
+    
+    }//GEN-LAST:event_btnA4ActionPerformed
 
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
+    private void btnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA6ActionPerformed
+        book("A6");
+        
+    }//GEN-LAST:event_btnA6ActionPerformed
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void btnA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA8ActionPerformed
+        book("A8");
+        
+    }//GEN-LAST:event_btnA8ActionPerformed
 
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+    private void btnB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB1ActionPerformed
+        book("B1");
+    }//GEN-LAST:event_btnB1ActionPerformed
 
-    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+    private void btnB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB2ActionPerformed
+        book("B2");
+    }//GEN-LAST:event_btnB2ActionPerformed
 
-    }//GEN-LAST:event_jToggleButton8ActionPerformed
+    private void btnB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB3ActionPerformed
+        book("B3");
+    }//GEN-LAST:event_btnB3ActionPerformed
 
-    private void jToggleButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton13ActionPerformed
+    private void btnB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB4ActionPerformed
+        book("B4");
+    }//GEN-LAST:event_btnB4ActionPerformed
 
-    }//GEN-LAST:event_jToggleButton13ActionPerformed
+    private void btnB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB5ActionPerformed
+        book("B5");
+    }//GEN-LAST:event_btnB5ActionPerformed
 
-    private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton14ActionPerformed
+    private void btnB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB7ActionPerformed
+        book("B7");
+    }//GEN-LAST:event_btnB7ActionPerformed
 
-    private void jToggleButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton15ActionPerformed
+    private void btnB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB8ActionPerformed
+        book("B8");
+    }//GEN-LAST:event_btnB8ActionPerformed
 
-    private void jToggleButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton16ActionPerformed
+    private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
+        book("C1");
+    }//GEN-LAST:event_btnC1ActionPerformed
 
-    private void jToggleButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton17ActionPerformed
+    private void btnC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC2ActionPerformed
+        book("C2");
+    }//GEN-LAST:event_btnC2ActionPerformed
 
-    private void jToggleButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton19ActionPerformed
+    private void btnC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC3ActionPerformed
+        book("C3");
+    }//GEN-LAST:event_btnC3ActionPerformed
 
-    private void jToggleButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton20ActionPerformed
+    private void btnC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC4ActionPerformed
+        book("C4");
+    }//GEN-LAST:event_btnC4ActionPerformed
 
-    private void jToggleButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton21ActionPerformed
+    private void btnC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC5ActionPerformed
+        book("C5");
+    }//GEN-LAST:event_btnC5ActionPerformed
 
-    private void jToggleButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton22ActionPerformed
+    private void btnC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC6ActionPerformed
+        book("C6");
+    }//GEN-LAST:event_btnC6ActionPerformed
 
-    private void jToggleButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton23ActionPerformed
+    private void btnC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC7ActionPerformed
+        book("C7");
+    }//GEN-LAST:event_btnC7ActionPerformed
 
-    private void jToggleButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton24ActionPerformed
+    private void btnC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC8ActionPerformed
+        book("C8");
+    }//GEN-LAST:event_btnC8ActionPerformed
 
-    private void jToggleButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton25ActionPerformed
+    private void btnD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD1ActionPerformed
+        book("D1");
+    }//GEN-LAST:event_btnD1ActionPerformed
 
-    private void jToggleButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton26ActionPerformed
+    private void btnD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD2ActionPerformed
+        book("D2");
+    }//GEN-LAST:event_btnD2ActionPerformed
 
-    private void jToggleButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton27ActionPerformed
+    private void btnD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD4ActionPerformed
+        book("D4");
+    }//GEN-LAST:event_btnD4ActionPerformed
 
-    private void jToggleButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton28ActionPerformed
+    private void btnD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD5ActionPerformed
+        book("D5");;
+    }//GEN-LAST:event_btnD5ActionPerformed
 
-    private void jToggleButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton29ActionPerformed
+    private void btnD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD6ActionPerformed
+        book("D6");
+    }//GEN-LAST:event_btnD6ActionPerformed
 
-    private void jToggleButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton30ActionPerformed
+    private void btnD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD7ActionPerformed
+        book("D7");
+    }//GEN-LAST:event_btnD7ActionPerformed
 
-    private void jToggleButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton32ActionPerformed
+    private void btnD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD8ActionPerformed
+        book("D8");
+    }//GEN-LAST:event_btnD8ActionPerformed
 
-    private void jToggleButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton33ActionPerformed
+    private void btnA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA5ActionPerformed
+        book("A5");
+    }//GEN-LAST:event_btnA5ActionPerformed
 
-    private void jToggleButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton34ActionPerformed
-
-    private void jToggleButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton35ActionPerformed
-
-    private void jToggleButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton36ActionPerformed
-
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
-
-    private void jToggleButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton37ActionPerformed
+    private void btnA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA7ActionPerformed
+        book("A7");
+    }//GEN-LAST:event_btnA7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -903,7 +951,39 @@ public class DaftarKursi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnA1;
+    private javax.swing.JToggleButton btnA2;
+    private javax.swing.JToggleButton btnA3;
+    private javax.swing.JToggleButton btnA4;
+    private javax.swing.JToggleButton btnA5;
+    private javax.swing.JToggleButton btnA6;
+    private javax.swing.JToggleButton btnA7;
+    private javax.swing.JToggleButton btnA8;
+    private javax.swing.JToggleButton btnB1;
+    private javax.swing.JToggleButton btnB2;
+    private javax.swing.JToggleButton btnB3;
+    private javax.swing.JToggleButton btnB4;
+    private javax.swing.JToggleButton btnB5;
+    private javax.swing.JToggleButton btnB6;
+    private javax.swing.JToggleButton btnB7;
+    private javax.swing.JToggleButton btnB8;
     private javax.swing.JButton btnBayar;
+    private javax.swing.JToggleButton btnC1;
+    private javax.swing.JToggleButton btnC2;
+    private javax.swing.JToggleButton btnC3;
+    private javax.swing.JToggleButton btnC4;
+    private javax.swing.JToggleButton btnC5;
+    private javax.swing.JToggleButton btnC6;
+    private javax.swing.JToggleButton btnC7;
+    private javax.swing.JToggleButton btnC8;
+    private javax.swing.JToggleButton btnD1;
+    private javax.swing.JToggleButton btnD2;
+    private javax.swing.JToggleButton btnD3;
+    private javax.swing.JToggleButton btnD4;
+    private javax.swing.JToggleButton btnD5;
+    private javax.swing.JToggleButton btnD6;
+    private javax.swing.JToggleButton btnD7;
+    private javax.swing.JToggleButton btnD8;
     private javax.swing.JTextField hartot;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -920,41 +1000,9 @@ public class DaftarKursi extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JToggleButton jToggleButton12;
-    private javax.swing.JToggleButton jToggleButton13;
-    private javax.swing.JToggleButton jToggleButton14;
-    private javax.swing.JToggleButton jToggleButton15;
-    private javax.swing.JToggleButton jToggleButton16;
-    private javax.swing.JToggleButton jToggleButton17;
-    private javax.swing.JToggleButton jToggleButton18;
-    private javax.swing.JToggleButton jToggleButton19;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton20;
-    private javax.swing.JToggleButton jToggleButton21;
-    private javax.swing.JToggleButton jToggleButton22;
-    private javax.swing.JToggleButton jToggleButton23;
-    private javax.swing.JToggleButton jToggleButton24;
-    private javax.swing.JToggleButton jToggleButton25;
-    private javax.swing.JToggleButton jToggleButton26;
-    private javax.swing.JToggleButton jToggleButton27;
-    private javax.swing.JToggleButton jToggleButton28;
-    private javax.swing.JToggleButton jToggleButton29;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton30;
-    private javax.swing.JToggleButton jToggleButton31;
-    private javax.swing.JToggleButton jToggleButton32;
-    private javax.swing.JToggleButton jToggleButton33;
-    private javax.swing.JToggleButton jToggleButton34;
-    private javax.swing.JToggleButton jToggleButton35;
-    private javax.swing.JToggleButton jToggleButton36;
-    private javax.swing.JToggleButton jToggleButton37;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JTextField muncul;
     // End of variables declaration//GEN-END:variables
