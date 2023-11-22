@@ -14,6 +14,7 @@ public class Film {
     public String durasi;
     public String sinopsis;
     public String gambar;
+    public Trailer trailer;
     public Studio studio[];
     public int jumlahStudio;
 
@@ -32,6 +33,10 @@ public class Film {
             studio[jumlahStudio] = new Studio(nama, lokasi);
             jumlahStudio++;
         }
+    }
+
+    public void setTrailer(String link, String tumbnail) {
+        trailer = new Trailer(link, tumbnail);
     }
     
     public void setJadwal(String namaStudio, String Jadwal){
