@@ -45,13 +45,6 @@ public class DaftarKursi extends javax.swing.JFrame {
         hartot.setText(harga);
     }
 
-
-
-
-
-
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,8 +60,6 @@ public class DaftarKursi extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -178,21 +169,6 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         jLabel3.setText("Terjual");
 
-        jPanel5.setBackground(new java.awt.Color(51, 51, 255));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-
-        jLabel4.setText("Pilihanmu");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -206,10 +182,6 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -217,8 +189,6 @@ public class DaftarKursi extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,6 +198,8 @@ public class DaftarKursi extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        jToggleButton1.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("A1");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +207,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton2.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("A2");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +216,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton3.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton3.setText("A3");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +225,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton4.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton4.setText("A4");
         jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,6 +234,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton5.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton5.setText("A5");
         jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +243,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton6.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton6.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton6.setText("A6");
         jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,6 +252,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton8.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton8.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton8.setText("A8");
         jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,6 +261,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton13.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton13.setText("B1");
         jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +269,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton14.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton14.setText("B2");
         jToggleButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,6 +277,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton15.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton15.setText("B3");
         jToggleButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,6 +285,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton16.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton16.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton16.setText("B4");
         jToggleButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +294,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton17.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton17.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton17.setText("B5");
         jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,6 +303,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton18.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton18.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton18.setText("B6");
         jToggleButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,6 +312,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton19.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton19.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton19.setText("B7");
         jToggleButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,6 +321,8 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton20.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton20.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton20.setText("B8");
         jToggleButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,6 +330,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton21.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton21.setText("C1");
         jToggleButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +338,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton22.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton22.setText("C2");
         jToggleButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,6 +346,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton23.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton23.setText("C3");
         jToggleButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,6 +354,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton24.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton24.setText("C4");
         jToggleButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,6 +362,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton25.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton25.setText("C5");
         jToggleButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -368,6 +370,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton26.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton26.setText("C6");
         jToggleButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,6 +378,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton27.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton27.setText("C7");
         jToggleButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,6 +386,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton28.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton28.setText("C8");
         jToggleButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,6 +394,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton29.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton29.setText("D1");
         jToggleButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,6 +402,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton30.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton30.setText("D2");
         jToggleButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,6 +410,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton31.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton31.setText("D3");
         jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +418,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton32.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton32.setText("D4");
         jToggleButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,6 +426,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton33.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton33.setText("D5");
         jToggleButton33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,6 +434,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton34.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton34.setText("D6");
         jToggleButton34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -431,6 +442,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton35.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton35.setText("D7");
         jToggleButton35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,6 +450,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton36.setBackground(new java.awt.Color(19, 32, 67));
         jToggleButton36.setText("D8");
         jToggleButton36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,6 +478,8 @@ public class DaftarKursi extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jToggleButton37.setBackground(new java.awt.Color(19, 32, 67));
+        jToggleButton37.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton37.setText("A7");
         jToggleButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -893,7 +908,6 @@ public class DaftarKursi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -902,7 +916,6 @@ public class DaftarKursi extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
