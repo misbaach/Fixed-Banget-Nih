@@ -38,6 +38,14 @@ public class Kursi {
         }
     }
     
+    public int totalHarga() {
+    int hargaSatuan = 25000;
+    int jumlahKursiTerjual = terjual.size();
+    int totalHarga = hargaSatuan * jumlahKursiTerjual;
+    return harga;
+}
+
+    
     public void beli(){
         sedia.removeAll(terjual);
     }
