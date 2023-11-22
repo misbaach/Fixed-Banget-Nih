@@ -55,8 +55,8 @@ public class LandingPage extends javax.swing.JFrame {
     public void pindah(java.awt.event.MouseEvent evt){
         JLabel label = (JLabel) evt.getSource();
         String nama = label.getText();
-        //ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
-        //pindah.setVisible(true);
+        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
+        pindah.setVisible(true);
         this.dispose();
     }
 
