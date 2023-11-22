@@ -4,7 +4,8 @@
  */
 package Project;
 
-import Class.Data;
+
+import static Project.LoginPage.data;
 
 /**
  *
@@ -15,7 +16,9 @@ public class RegisterForm extends javax.swing.JFrame {
     /**
      * Creates new form RegisterForm
      */
+
     public RegisterForm() {
+
         initComponents();
     }
 
@@ -143,7 +146,7 @@ public class RegisterForm extends javax.swing.JFrame {
         username = txtUsername.getText();
         passwordChar = txtPassword.getPassword();
         password = new String(passwordChar);
-        Data data = new Data ();
+        
         data.tambahUser(username, password);
         LoginPage loginPage = new LoginPage ();
         loginPage.setVisible(true);

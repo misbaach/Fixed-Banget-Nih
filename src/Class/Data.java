@@ -20,6 +20,22 @@ public class Data {
         jumlahUser = 0;
         jumlahAdmin = 0;
     }
+
+    public Login[] getUser() {
+        return user;
+    }
+
+    public Login[] getAdmin() {
+        return admin;
+    }
+
+    public int getJumlahUser() {
+        return jumlahUser;
+    }
+
+    public int getJumlahAdmin() {
+        return jumlahAdmin;
+    }
     
     public void tambahAdmin(String username, String password){
         if(jumlahAdmin < 2){

@@ -4,12 +4,17 @@
  */
 package Project;
 
+import Class.Admin;
+import Class.Data;
+import Class.Login;
+import Class.User;
+
 /**
  *
  * @author Misbach
  */
 public class LoginPage extends javax.swing.JFrame {
-
+    public static Data data = new Data();
     /**
      * Creates new form LoginPage
      */
@@ -17,10 +22,32 @@ public class LoginPage extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void check(){
-        
-    }
+     public Login check(String username , String password){
+       
+        for (int i=0 ;i<data.getJumlahAdmin() ; i++){
+             if ((username.equals(data.getAdmin()[i].username)
+                     && password.equals(data.getAdmin()[i].password))) {
+            return data.getAdmin()[i];
+            } 
+        }
+        for (int j=0 ;j<data.getJumlahUser() ; j++){
+             if ((username.equals(data.getUser()[j].username)
+                     && password.equals(data.getUser()[j].password))) {
+                return data.getUser()[j];
+             }
+        }
+       return null;
+     }
+    public String[] getTextFromView() {
+        String[] userPass = new String[2]; 
+        char[] passwordChar;
 
+        userPass[0] = txtUsername.getText();
+        passwordChar = txtPassword.getPassword();
+        userPass[1] = new String(passwordChar);
+
+        return userPass; 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +66,7 @@ public class LoginPage extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         btnMasuk = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnDaftar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(456, 524));
@@ -85,9 +112,14 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(19, 32, 67));
-        jButton1.setText("Daftar Sekarang");
+        btnDaftar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDaftar.setForeground(new java.awt.Color(19, 32, 67));
+        btnDaftar.setText("Daftar Sekarang");
+        btnDaftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDaftarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,7 +129,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                    .addComponent(btnDaftar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                     .addComponent(txtUsername)
                     .addComponent(txtPassword)
                     .addComponent(btnMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,7 +156,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(163, Short.MAX_VALUE))
         );
 
@@ -153,11 +185,26 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
-        check();
-        LandingPage pindah = new LandingPage();
-        pindah.setVisible(true);
+        String[] userPass = getTextFromView();
+        String username = userPass[0];
+        String password = userPass[1];
+        Login login = check(username,password);
+        if (login instanceof User user){
+           LandingPage landingPage = new LandingPage(user); 
+            landingPage.setVisible(true);
+        }if (login instanceof Admin admin){
+           AdminPage adminPage = new AdminPage(admin); 
+           adminPage.setVisible(true); 
+        }
+        
         this.dispose();
     }//GEN-LAST:event_btnMasukActionPerformed
+
+    private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
+        RegisterForm regis = new RegisterForm();
+        regis.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDaftarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,8 +242,8 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDaftar;
     private javax.swing.JButton btnMasuk;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
