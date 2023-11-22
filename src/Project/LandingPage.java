@@ -35,10 +35,10 @@ public class LandingPage extends javax.swing.JFrame {
         tampilGambar();
     }
 
-    
-    public void filmAwal(){
-        daftarFilm.tambahFilm("", "", "", "", "Susuk (1).jpg");
+    public void filmAwal() {
+        daftarFilm.tambahFilm("", "", "", "", "Diambang Kematian (3).jpg");
         daftarFilm.tambahFilm("", "", "", "", "Titanic (2).jpg");
+        daftarFilm.tambahFilm("", "", "", "", "Susuk (1).jpg");
     }
 
     public void tampilGambar() {
@@ -47,16 +47,33 @@ public class LandingPage extends javax.swing.JFrame {
             String nama = gambar.getGambar();
             URL imageURL = getClass().getResource("/Images/" + nama);
             ImageIcon icon = new ImageIcon(imageURL);
-            pilihLabel(ke, icon);
+            pilihLabel(ke, icon, nama);
             ke++;
         }
     }
     
-    public void pilihLabel(int ke, ImageIcon icon){
+    public void pindah(java.awt.event.MouseEvent evt){
+        JLabel label = (JLabel) evt.getSource();
+        String nama = label.getText();
+        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
+        pindah.setVisible(true);
+        this.dispose();
+    }
+
+    public void pilihLabel(int ke, ImageIcon icon, String nama) {
         switch (ke) {
-            case 1 -> gambar1.setIcon(icon);
-            case 2 -> gambar2.setIcon(icon);
-            case 3 -> gambar3.setIcon(icon);
+            case 1 ->{
+                gambar1.setIcon(icon);
+                gambar1.setText(nama);
+            }
+            case 2 ->{
+                gambar2.setIcon(icon);
+                gambar2.setText(nama);
+            }
+            case 3 ->{
+                gambar3.setIcon(icon);
+                gambar3.setText(nama);
+            }
             default -> {
             }
         }
@@ -106,6 +123,12 @@ public class LandingPage extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setPreferredSize(new java.awt.Dimension(228, 305));
 
+        gambar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gambar1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -129,6 +152,12 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setPreferredSize(new java.awt.Dimension(228, 305));
+
+        gambar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gambar2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -413,10 +442,7 @@ public class LandingPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void gambar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar3MouseClicked
-        String nama = "";
-        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
-        pindah.setVisible(true);
-        this.dispose();
+        pindah(evt);
     }//GEN-LAST:event_gambar3MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
@@ -447,6 +473,16 @@ public class LandingPage extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void gambar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar1MouseClicked
+        // TODO add your handling code here:
+        pindah(evt);
+    }//GEN-LAST:event_gambar1MouseClicked
+
+    private void gambar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar2MouseClicked
+        // TODO add your handling code here:
+        pindah(evt);
+    }//GEN-LAST:event_gambar2MouseClicked
 
     /**
      * @param args the command line arguments

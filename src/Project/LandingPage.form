@@ -175,6 +175,9 @@
                 <Component class="javax.swing.JLabel" name="jLabel7">
                 </Component>
                 <Component class="javax.swing.JLabel" name="gambar1">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="gambar1MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -210,6 +213,9 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="gambar2">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="gambar2MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
