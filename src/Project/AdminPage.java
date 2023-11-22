@@ -4,6 +4,8 @@
  */
 package Project;
 
+import Class.Admin;
+
 /**
  *
  * @author Sulthan Daffa
@@ -13,8 +15,11 @@ public class AdminPage extends javax.swing.JFrame {
     /**
      * Creates new form AdminPage
      */
-    public AdminPage() {
+    private Admin admin ;
+    public AdminPage(Admin admin) {
+        
         initComponents();
+        this.admin = admin;
     }
 
     /**
@@ -257,11 +262,7 @@ public class AdminPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminPage().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

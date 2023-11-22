@@ -98,7 +98,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel7" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="1" pref="432" max="32767" attributes="0"/>
+                      <Component id="btnDaftar" alignment="1" pref="432" max="32767" attributes="0"/>
                       <Component id="txtUsername" max="32767" attributes="0"/>
                       <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnMasuk" alignment="0" max="32767" attributes="0"/>
@@ -130,7 +130,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnDaftar" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace pref="163" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -180,7 +180,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMasukActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnDaftar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
@@ -190,6 +190,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Daftar Sekarang"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDaftarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

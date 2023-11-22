@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import Class.Film;
+import Class.User;
 import java.net.URL;
 import javax.swing.JLabel;
 
@@ -27,9 +28,10 @@ public class LandingPage extends javax.swing.JFrame {
      * Creates new form LandingPage
      */
     public DaftarFilm daftarFilm;
-
-    public LandingPage() {
+    private User user;
+    public LandingPage(User user) {
         initComponents();
+        this.user = user;
         daftarFilm = new DaftarFilm();
         filmAwal();
         tampilGambar();
@@ -415,11 +417,7 @@ public class LandingPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LandingPage().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
