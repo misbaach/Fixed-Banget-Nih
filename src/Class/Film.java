@@ -58,6 +58,10 @@ public class Film {
     public String getGambar() {
         return gambar;
     }
+
+    public Trailer getTrailer() {
+        return trailer;
+    }
     
     public String getJadwalFilm(String namaFilm) {
         // Loop melalui setiap studio
