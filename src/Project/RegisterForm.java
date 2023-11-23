@@ -4,8 +4,10 @@
  */
 package Project;
 
-
+import Class.Admin;
+import Class.Login;
 import static Project.LoginPage.data;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,10 +18,71 @@ public class RegisterForm extends javax.swing.JFrame {
     /**
      * Creates new form RegisterForm
      */
-
     public RegisterForm() {
 
         initComponents();
+    }
+
+    public String[] getTextFromView() {
+        String[] userPass = new String[2];
+        char[] passwordChar;
+
+        userPass[0] = txtUsername.getText();
+        passwordChar = txtPassword.getPassword();
+        userPass[1] = new String(passwordChar);
+
+        return userPass;
+    }
+
+    public boolean checkAdaData(String username, String password) {
+
+        for (int i = 0; i < data.getJumlahAdmin(); i++) {
+            if ((username.equals(data.getAdmin()[i].username))) {
+                return true;
+            }
+        }
+        for (int j = 0; j < data.getJumlahUser(); j++) {
+            if ((username.equals(data.getUser()[j].username))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean check(String username, String kata[], String password) {
+        Admin admin = (Admin) data.getAdmin()[0];
+        if (username.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(this, "Password atau username tidak boleh kosong.");
+            return false;
+        } else if (kata.length == 2 && !kata[1].equals(admin.getKode())) {
+            JOptionPane.showMessageDialog(this, "password tidak boleh spasi");
+            return false;
+        } else if (kata.length == 2 && kata[1].equals(admin.getKode())) {
+            data.tambahAdmin(username, kata[0]);
+            JOptionPane.showMessageDialog(this, "registrasi admin berhasil");
+            return true;
+        } else if (kata.length < 2) {
+            data.tambahUser(username, password);
+            JOptionPane.showMessageDialog(this, "registrasi user berhasil");
+            return true;
+        }
+        return false;
+    }
+
+    public void regis() {
+        String[] userPass = getTextFromView();
+        String username = userPass[0];
+        String password = userPass[1];
+        String[] kata = password.split(" ");
+        if (checkAdaData(username, password)) {
+            JOptionPane.showMessageDialog(this, "Username tidak tersedia");
+            return;
+        }
+        if (check(username, kata, password)) {
+            LoginPage loginPage = new LoginPage();
+            loginPage.setVisible(true);
+            this.dispose();
+        }
     }
 
     /**
@@ -140,18 +203,7 @@ public class RegisterForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
-        String username;
-        String password;
-        char passwordChar [];
-        username = txtUsername.getText();
-        passwordChar = txtPassword.getPassword();
-        password = new String(passwordChar);
-        
-        data.tambahUser(username, password);
-        LoginPage loginPage = new LoginPage ();
-        loginPage.setVisible(true);
-        this.dispose();
-        
+        regis();
     }//GEN-LAST:event_btnMasukActionPerformed
 
     /**
