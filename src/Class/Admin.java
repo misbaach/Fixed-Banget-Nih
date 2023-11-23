@@ -13,7 +13,7 @@ public class Admin extends Login{
     
     public Admin(String username, String password){
         super(username, password);
-        kode = "Tes";
+        kode = "admin";
     }
 
     public String getKode() {

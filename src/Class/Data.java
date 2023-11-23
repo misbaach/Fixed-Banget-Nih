@@ -8,7 +8,7 @@ package Class;
  *
  * @author ASUS
  */
-public class Data {
+public final class Data {
     public Login user[];
     public Login admin[];
     public int jumlahUser;
@@ -19,6 +19,8 @@ public class Data {
         admin = new Admin[2];
         jumlahUser = 0;
         jumlahAdmin = 0;
+        tambahAdmin("admin", "admin");
+        tambahUser("user","user");
     }
 
     public Login[] getUser() {
