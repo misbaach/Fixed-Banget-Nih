@@ -19,6 +19,8 @@ public class Kursi {
         this.harga = harga;
         this.sedia = new ArrayList<>();
         this.terjual = new ArrayList<>();
+        terjual.add("A1");
+        terjual.add("D2");
         isiSedia();
     }
     
@@ -53,4 +55,9 @@ public class Kursi {
     public int getHarga() {
         return harga;
     }
+
+    public ArrayList<String> getTerjual() {
+        return terjual;
+    }
+    
 }
