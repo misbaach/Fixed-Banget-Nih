@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Project;
+
 import Class.Film;
 import Class.Kursi;
+import java.util.ArrayList;
 import javax.swing.JToggleButton;
+
 /**
  *
  * @author Misbach
@@ -14,27 +17,32 @@ public class DaftarKursi extends javax.swing.JFrame {
 
     Film film;
     Kursi kursi;
-    
+
     public DaftarKursi() {
         initComponents();
         this.film = film;
         this.kursi = new Kursi(25000);
+        disableTerjual();
     }
-    
+
     String kursiDipilih = "";
 
     private int pilihan() {
-      String[] kursiArray = kursiDipilih.trim().split(" ");
-      return kursiArray.length;
-  }
+        String[] kursiArray = kursiDipilih.trim().split(" ");
+        return kursiArray.length;
+    }
 
-    private void book(String kursi) {
+    private JToggleButton[] daftarBtn() {
         JToggleButton[] allToggleButtons = {
             btnA1, btnA2, btnA3, btnA4, btnA5, btnA6, btnA7, btnA8,
             btnB1, btnB2, btnB3, btnB4, btnB5, btnB6, btnB7, btnB8,
             btnC1, btnC2, btnC3, btnC4, btnC5, btnC6, btnC7, btnC8,
             btnD1, btnD2, btnD3, btnD4, btnD5, btnD6, btnD7, btnD8
         };
+        return allToggleButtons;
+    }
+
+    private void book(String kursi) {
         if (kursi != null && !kursi.isEmpty()) {
             if (kursiDipilih.contains(kursi)) {
                 kursiDipilih = kursiDipilih.replace(kursi + " ", "");
@@ -47,15 +55,13 @@ public class DaftarKursi extends javax.swing.JFrame {
             tampilkanHarga();
 
             int pilihanmu = pilihan();
-            for (JToggleButton button : allToggleButtons) {
+            for (JToggleButton button : daftarBtn()) {
                 if (!kursiDipilih.contains(button.getActionCommand())) {
                     button.setEnabled(pilihanmu < 4);
                 }
             }
         }
     }
-
-
 
     private void tampilkanHarga() {
         int hargaTotal;
@@ -66,6 +72,15 @@ public class DaftarKursi extends javax.swing.JFrame {
         }
         String harga = String.valueOf(hargaTotal);
         hartot.setText(harga);
+    }
+
+    private void disableTerjual() {
+        ArrayList<String> terjual = kursi.getTerjual();
+        for (JToggleButton button : daftarBtn()) {
+            if (terjual.contains(button.getText())) {
+                button.setEnabled(false);
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -788,35 +803,35 @@ public class DaftarKursi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnB6ActionPerformed
 
     private void btnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA1ActionPerformed
-     book("A1");
-     tampilkanHarga();
-     
+        book("A1");
+        tampilkanHarga();
+
     }//GEN-LAST:event_btnA1ActionPerformed
 
     private void btnA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA2ActionPerformed
-    book("A2");
-    tampilkanHarga();
-    
+        book("A2");
+        tampilkanHarga();
+
     }//GEN-LAST:event_btnA2ActionPerformed
 
     private void btnA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA3ActionPerformed
-    book("A3");
-    
+        book("A3");
+
     }//GEN-LAST:event_btnA3ActionPerformed
 
     private void btnA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA4ActionPerformed
-    book("A4");
-    
+        book("A4");
+
     }//GEN-LAST:event_btnA4ActionPerformed
 
     private void btnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA6ActionPerformed
         book("A6");
-        
+
     }//GEN-LAST:event_btnA6ActionPerformed
 
     private void btnA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA8ActionPerformed
         book("A8");
-        
+
     }//GEN-LAST:event_btnA8ActionPerformed
 
     private void btnB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB1ActionPerformed
