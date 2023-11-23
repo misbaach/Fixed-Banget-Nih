@@ -52,5 +52,12 @@ public class DaftarFilm {
             film.set(index, filmBaru);
         }
     }
-    
+
+    public ArrayList<Film> getFilm() {
+        return film;
+    }
+
+    public int getJumlahFilm() {
+        return jumlahFilm;
+    }
 }
