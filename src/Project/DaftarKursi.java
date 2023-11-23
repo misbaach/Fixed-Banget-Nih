@@ -58,6 +58,7 @@ public class DaftarKursi extends javax.swing.JFrame {
             for (JToggleButton button : daftarBtn()) {
                 if (!kursiDipilih.contains(button.getActionCommand())) {
                     button.setEnabled(pilihanmu < 4);
+                    disableTerjual();
                 }
             }
         }

@@ -5,6 +5,7 @@
 package Project;
 
 import Class.Admin;
+import Class.DaftarFilm;
 import Class.Data;
 import Class.Login;
 import Class.User;
@@ -14,40 +15,72 @@ import Class.User;
  * @author Misbach
  */
 public class LoginPage extends javax.swing.JFrame {
-    public static Data data = new Data();
+
     /**
      * Creates new form LoginPage
      */
+    public static Data data = new Data();
+    public DaftarFilm daftarFilm;
+
     public LoginPage() {
         initComponents();
     }
+
+    public LoginPage(DaftarFilm daftarFilm) {
+        initComponents();
+        this.daftarFilm = daftarFilm;
+    }
     
-     public Login check(String username , String password){
-       
-        for (int i=0 ;i<data.getJumlahAdmin() ; i++){
-             if ((username.equals(data.getAdmin()[i].username)
-                     && password.equals(data.getAdmin()[i].password))) {
-            return data.getAdmin()[i];
-            } 
+    public void pindahAdmin(Admin adminData){
+        LandingAdmin admin;
+        if(daftarFilm == null){
+            admin = new LandingAdmin(adminData);
+        }else{
+            admin = new LandingAdmin(adminData, daftarFilm);
         }
-        for (int j=0 ;j<data.getJumlahUser() ; j++){
-             if ((username.equals(data.getUser()[j].username)
-                     && password.equals(data.getUser()[j].password))) {
+        admin.setVisible(true);
+        this.dispose();
+    }
+    
+    public void pindahUser(User userData){
+        LandingUser user;
+        if(daftarFilm == null){
+            user = new LandingUser(userData);
+        }else{
+            user = new LandingUser(userData, daftarFilm);
+        }
+        user.setVisible(true);
+        this.dispose();
+    }
+
+    public Login check(String username, String password) {
+
+        for (int i = 0; i < data.getJumlahAdmin(); i++) {
+            if ((username.equals(data.getAdmin()[i].username)
+                    && password.equals(data.getAdmin()[i].password))) {
+                return data.getAdmin()[i];
+            }
+        }
+        for (int j = 0; j < data.getJumlahUser(); j++) {
+            if ((username.equals(data.getUser()[j].username)
+                    && password.equals(data.getUser()[j].password))) {
                 return data.getUser()[j];
-             }
+            }
         }
-       return null;
-     }
+        return null;
+    }
+
     public String[] getTextFromView() {
-        String[] userPass = new String[2]; 
+        String[] userPass = new String[2];
         char[] passwordChar;
 
         userPass[0] = txtUsername.getText();
         passwordChar = txtPassword.getPassword();
         userPass[1] = new String(passwordChar);
 
-        return userPass; 
+        return userPass;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,15 +221,18 @@ public class LoginPage extends javax.swing.JFrame {
         String[] userPass = getTextFromView();
         String username = userPass[0];
         String password = userPass[1];
-        Login login = check(username,password);
-        if (login instanceof User user){
-           LandingPage landingPage = new LandingPage(user); 
-            landingPage.setVisible(true);
-        }if (login instanceof Admin admin){
-           AdminPage adminPage = new AdminPage(admin); 
-           adminPage.setVisible(true); 
+        Login login = check(username, password);
+        if (login instanceof User user) {
+            pindahUser(user);
+//            LandingPage landingPage = new LandingPage(user);
+//            landingPage.setVisible(true);
         }
-        
+        if (login instanceof Admin admin) {
+            pindahAdmin(admin);
+//            AdminPage adminPage = new AdminPage(admin);
+//            adminPage.setVisible(true);
+        }
+
         this.dispose();
     }//GEN-LAST:event_btnMasukActionPerformed
 
