@@ -11,16 +11,14 @@ import java.util.ArrayList;
  * @author ASUS
  */
 public class Kursi {
+    public String jadwal;
     public ArrayList<String> sedia;
     public ArrayList<String> terjual;
-    public int harga;
 
-    public Kursi(int harga){
-        this.harga = harga;
+    public Kursi(String jadwal){
+        this.jadwal = jadwal;
         this.sedia = new ArrayList<>();
         this.terjual = new ArrayList<>();
-        terjual.add("A1");
-        terjual.add("D2");
         isiSedia();
     }
     
@@ -39,21 +37,13 @@ public class Kursi {
             terjual.add(kata);
         }
     }
-    
-    public int totalHarga() {
-    int hargaSatuan = 25000;
-    int jumlahKursiTerjual = terjual.size();
-    int totalHarga = hargaSatuan * jumlahKursiTerjual;
-    return harga;
-}
 
+    public String getJadwal() {
+        return jadwal;
+    }
     
     public void beli(){
         sedia.removeAll(terjual);
-    }
-
-    public int getHarga() {
-        return harga;
     }
 
     public ArrayList<String> getTerjual() {

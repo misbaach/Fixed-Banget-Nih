@@ -51,6 +51,10 @@ public class Film {
         return nama;
     }
 
+    public int getJumlahStudio() {
+        return jumlahStudio;
+    }
+    
     public String getSinopsis() {
         return sinopsis;
     }
@@ -62,18 +66,33 @@ public class Film {
     public Trailer getTrailer() {
         return trailer;
     }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getDurasi() {
+        return durasi;
+    }
+
+    public Studio getStudio(String namaStudio) {
+        for(int i = 0; i < jumlahStudio; i++){
+            if(studio[i].getNama().equals(namaStudio)){
+                return studio[i];
+            }
+        }
+        return null;
+    }
     
-    public String getJadwalFilm(String namaFilm) {
+    
+    public String[] getJadwalFilm(String namaFilm, String namaStudio) {
         // Loop melalui setiap studio
         for (int i = 0; i < jumlahStudio; i++) {
             // Loop melalui setiap jadwal dalam studio
-            for (int j = 0; j < studio[i].jumlahJadwal; j++) {
-                // Jika jadwal tidak kosong dan mengandung nama film
-                if (studio[i].jadwal[j] != null && studio[i].jadwal[j].contains(namaFilm)) {
-                    return studio[i].jadwal[j];
-                }
+            if(studio[i].getNama().equals(namaStudio)){
+                return studio[i].getJadwal();
             }
         }
-        return "Jadwal tidak ditemukan";
+        return null;
     }
 }

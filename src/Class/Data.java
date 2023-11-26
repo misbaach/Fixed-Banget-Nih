@@ -56,4 +56,23 @@ public final class Data {
             
         }
     }
+    
+    public boolean checkAdmin(String username) {
+
+        for (int i = 0; i < jumlahAdmin; i++) {
+            if (username.equals(admin[i].username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean checkUser(String username) {
+        for (int j = 0; j < jumlahUser; j++) {
+            if (username.equals(user[j].username)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
