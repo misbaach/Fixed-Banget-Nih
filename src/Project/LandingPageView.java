@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.time.LocalDate;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -38,19 +39,42 @@ public class LandingPageView extends javax.swing.JFrame {
         this.daftarFilm = daftarFilm;
         tampilGambar();
     }
+    
 
     public void filmAwal() {
-        daftarFilm.tambahFilm("a", "", "", "", "Diambang Kematian (3).jpg");
-        daftarFilm.tambahFilm("b", "", "", "", "Titanic (2).jpg");
-        daftarFilm.tambahFilm("c", "", "", "", "Susuk (1).jpg");
+        daftarFilm.tambahFilm("a", "nasb", "10", "This is a dynamic text that can be very long and will be wrapped automatically", "Diambang Kematian (3).jpg");
+        daftarFilm.tambahFilm("b", "ljasn", "20", "This is a dynamic text that can be very long and will be wrapped automatically", "Titanic (2).jpg");
+        daftarFilm.tambahFilm("c", "sabdb", "30", "This is a dynamic text that can be very long and will be wrapped automatically", "Susuk (1).jpg");
         Film satu = daftarFilm.getFilm().get(0);
         Film dua = daftarFilm.getFilm().get(1);
         Film tiga = daftarFilm.getFilm().get(2);
-
+        
+        aturStudio(satu);
+        aturStudio(dua);
+        aturStudio(tiga);
+        LocalDate today = LocalDate.now();
+        satu.getStudio("CGV").setHarga(20000);
+        satu.getStudio("XXI").setHarga(30000);
+        
+        satu.setJadwal("CGV", today +" 12.00");
+        satu.setJadwal("CGV", today +" 13.30");
+        satu.setJadwal("CGV", today.plusDays(1) + " 10.30");
+        satu.setJadwal("XXI", today +" 10.30");
+        dua.setJadwal("XXI", today +" 12.00");
+        
+        
+        
         satu.setTrailer("https://www.youtube.com/watch?v=CNWdWAK0rOQ", "diambangkematiantrailer.png");
         dua.setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", "titanicTrailer.png");
         tiga.setTrailer("https://www.youtube.com/watch?v=6sJRZepIGsk", "susukTrailer.png");
     }
+    
+    public void aturStudio(Film film){
+        film.setStudio("CGV", "Surabaya");
+        film.setStudio("XXI", "Surabaya");
+        film.setStudio("iMAX", "Surabaya");
+    }
+    
 
     public void tampilGambar() {
         int ke = 1;
@@ -66,15 +90,15 @@ public class LandingPageView extends javax.swing.JFrame {
     public void pindah(java.awt.event.MouseEvent evt) {
         JLabel label = (JLabel) evt.getSource();
         String nama = label.getText();
-        System.out.println(nama);
+        String username = usernameTxt.getText();
         if (evt.getClickCount() == 2) {
-            ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
-            pindah.setVisible(true);
+            ViewPage pindahPage;
+            pindahPage = new ViewPage(daftarFilm, nama, username);
+            pindahPage.setVisible(true);
             this.dispose();
         } else {
             this.namaFilm = nama;
         }
-
     }
 
     public void lihatTrailer(int ke) {
@@ -128,6 +152,7 @@ public class LandingPageView extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         gambar3 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
+        usernameTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -258,6 +283,8 @@ public class LandingPageView extends javax.swing.JFrame {
             }
         });
 
+        usernameTxt.setText("username");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -267,7 +294,9 @@ public class LandingPageView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logout)
-                .addGap(190, 190, 190))
+                .addGap(18, 18, 18)
+                .addComponent(usernameTxt)
+                .addGap(121, 121, 121))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,7 +312,9 @@ public class LandingPageView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(logout)
+                            .addComponent(usernameTxt))
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -366,5 +397,6 @@ public class LandingPageView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JButton logout;
+    protected javax.swing.JLabel usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

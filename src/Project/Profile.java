@@ -4,6 +4,14 @@
  */
 package Project;
 
+import Class.Login;
+import Class.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  *
  * @author Misbach
@@ -13,8 +21,28 @@ public class Profile extends javax.swing.JFrame {
     /**
      * Creates new form TopUpForm
      */
-    public Profile() {
+    public String username;
+    public User user;
+
+    public Profile(String username) {
         initComponents();
+        this.username = username;
+        setProfile();
+    }
+
+    public void setProfile() {
+        usernameTxt.setText(username);
+        for (int i = 0; i < LoginPage.data.getJumlahUser(); i++) {
+            Login login = LoginPage.data.getUser()[i];
+            if (login.getUsername().equals(username)) {
+                this.user = (User) login;
+
+                // Mengonfigurasi format mata uang
+                DecimalFormat saldo = (DecimalFormat) NumberFormat.getCurrencyInstance();
+                saldo.applyPattern("#,###");
+                saldoTxt.setText("Rp. " + saldo.format(user.getSaldo()));
+            }
+        }
     }
 
     /**
@@ -29,12 +57,12 @@ public class Profile extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        saldoTxt = new javax.swing.JLabel();
+        topUpBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -60,10 +88,10 @@ public class Profile extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(28, 101, 140));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Username");
+        usernameTxt.setBackground(new java.awt.Color(255, 255, 255));
+        usernameTxt.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        usernameTxt.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTxt.setText("Username");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -71,28 +99,33 @@ public class Profile extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(usernameTxt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(usernameTxt)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(7, 102, 173));
-        jLabel4.setText("Rp xxx.xxx");
+        saldoTxt.setBackground(new java.awt.Color(255, 255, 255));
+        saldoTxt.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        saldoTxt.setForeground(new java.awt.Color(7, 102, 173));
+        saldoTxt.setText("Rp xxx.xxx");
 
-        jButton1.setBackground(new java.awt.Color(7, 102, 173));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("TOP UP");
+        topUpBtn.setBackground(new java.awt.Color(7, 102, 173));
+        topUpBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        topUpBtn.setForeground(new java.awt.Color(255, 255, 255));
+        topUpBtn.setText("TOP UP");
+        topUpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topUpBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,9 +133,9 @@ public class Profile extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(saldoTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(topUpBtn)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,8 +143,8 @@ public class Profile extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton1))
+                    .addComponent(saldoTxt)
+                    .addComponent(topUpBtn))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -144,6 +177,22 @@ public class Profile extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void topUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topUpBtnActionPerformed
+        // TODO add your handling code here:
+        MenuTopUp menuTopUp = new MenuTopUp(user);
+        menuTopUp.setVisible(true);
+        setVisible(false);
+
+        menuTopUp.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                setProfile();
+                setVisible(true);
+            }
+        });
+        
+    }//GEN-LAST:event_topUpBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,20 +224,15 @@ public class Profile extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Profile().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel saldoTxt;
+    private javax.swing.JButton topUpBtn;
+    private javax.swing.JLabel usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

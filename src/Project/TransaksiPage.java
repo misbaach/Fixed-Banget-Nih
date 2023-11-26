@@ -4,17 +4,57 @@
  */
 package Project;
 import Class.Film;
+import Class.Login;
+import Class.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 /**
  *
  * @author Misbach
  */
 public class TransaksiPage extends javax.swing.JFrame {
     public Film film;
+    public String studio;
+    public String jadwal;
+    public String pilihan;
+    public String username;
+    public User user;
     
-    public TransaksiPage(Film film) {
+    public TransaksiPage(Film film, String studio, String jadwal, String pilihan, String username) {
         initComponents();
-        
         this.film = film;
+        this.studio = studio;
+        this.jadwal = jadwal;
+        this.pilihan = pilihan;
+        this.username = username;
+        setTampil();
+    }
+    
+    public void setTampil(){
+        int hargaTotal = film.getStudio(studio).getHarga() * pilihan.trim().split(" ").length;
+        studioTxt.setText(studio);
+        namaFilmTxt.setText(film.getNama());
+        tempatStudioTxt.setText(film.getStudio(studio).getTempat());
+        tiketTxt.setText(pilihan);
+        bayarTxt.setText(Integer.toString(hargaTotal));
+        setProfile();
+    }
+    
+    public void setProfile() {
+        usernameTxt.setText(username);
+        for (int i = 0; i < LoginPage.data.getJumlahUser(); i++) {
+            Login login = LoginPage.data.getUser()[i];
+            if (login.getUsername().equals(username)) {
+                this.user = (User) login;
+
+                // Mengonfigurasi format mata uang
+                DecimalFormat saldo = (DecimalFormat) NumberFormat.getCurrencyInstance();
+                saldo.applyPattern("#,###");
+                saldoTxt.setText("Rp. " + saldo.format(user.getSaldo()));
+            }
+        }
     }
     
 
@@ -28,33 +68,37 @@ public class TransaksiPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        namaFilmTxt = new javax.swing.JLabel();
+        studioTxt = new javax.swing.JLabel();
+        tempatStudioTxt = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        tiketTxt = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        btnMasuk = new javax.swing.JButton();
+        bayarTxt = new javax.swing.JLabel();
+        btnBayar = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        topUpBtn = new javax.swing.JButton();
+        usernameTxt = new javax.swing.JLabel();
+        saldoTxt = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel2.setText("JUDUL FILM");
+        namaFilmTxt.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        namaFilmTxt.setText("JUDUL FILM");
 
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(233, 184, 36));
-        jLabel3.setText("Studio");
+        studioTxt.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        studioTxt.setForeground(new java.awt.Color(233, 184, 36));
+        studioTxt.setText("Studio");
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel4.setText("Tempat Studio, Studio X");
+        tempatStudioTxt.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        tempatStudioTxt.setText("Tempat Studio, Studio X");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,20 +107,20 @@ public class TransaksiPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(namaFilmTxt)
+                    .addComponent(studioTxt)
+                    .addComponent(tempatStudioTxt))
                 .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(studioTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(namaFilmTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(tempatStudioTxt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -110,8 +154,8 @@ public class TransaksiPage extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabel6.setText("x");
 
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel7.setText("TIKET");
+        tiketTxt.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        tiketTxt.setText("TIKET");
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabel8.setText("x");
@@ -127,12 +171,12 @@ public class TransaksiPage extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tiketTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel8))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 324, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -145,14 +189,14 @@ public class TransaksiPage extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addComponent(jLabel8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(tiketTxt)
                         .addContainerGap())))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel9.setText("TOTAL BAYAR");
+        bayarTxt.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        bayarTxt.setText("TOTAL BAYAR");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -160,25 +204,70 @@ public class TransaksiPage extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addComponent(bayarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel9)
+                .addComponent(bayarTxt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnMasuk.setBackground(new java.awt.Color(19, 32, 67));
-        btnMasuk.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnMasuk.setForeground(new java.awt.Color(233, 184, 36));
-        btnMasuk.setText("BAYAR SEKARANG");
-        btnMasuk.addActionListener(new java.awt.event.ActionListener() {
+        btnBayar.setBackground(new java.awt.Color(19, 32, 67));
+        btnBayar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBayar.setForeground(new java.awt.Color(233, 184, 36));
+        btnBayar.setText("BAYAR SEKARANG");
+        btnBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMasukActionPerformed(evt);
+                btnBayarActionPerformed(evt);
             }
         });
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        topUpBtn.setBackground(new java.awt.Color(19, 32, 67));
+        topUpBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        topUpBtn.setForeground(new java.awt.Color(233, 184, 36));
+        topUpBtn.setText("Top Up");
+        topUpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topUpBtnActionPerformed(evt);
+            }
+        });
+
+        usernameTxt.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        usernameTxt.setText("username");
+
+        saldoTxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        saldoTxt.setText("Rp xxx");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(saldoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(topUpBtn)
+                .addGap(15, 15, 15))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(usernameTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(topUpBtn)
+                    .addComponent(saldoTxt))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,7 +280,8 @@ public class TransaksiPage extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -205,17 +295,36 @@ public class TransaksiPage extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(btnBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
+    private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMasukActionPerformed
+        if(user.getSaldo() >= Integer.parseInt(bayarTxt.getText())){
+            user.kurangSaldo(Integer.parseInt(bayarTxt.getText()));
+            film.getStudio(studio).beliKursi(jadwal, pilihan);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnBayarActionPerformed
+
+    private void topUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topUpBtnActionPerformed
+        // TODO add your handling code here:
+        MenuTopUp menuTopUp = new MenuTopUp(user);
+        menuTopUp.setVisible(true);
+        menuTopUp.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                setTampil();
+            }
+        });
+    }//GEN-LAST:event_topUpBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,19 +334,23 @@ public class TransaksiPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMasuk;
+    private javax.swing.JLabel bayarTxt;
+    private javax.swing.JButton btnBayar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel namaFilmTxt;
+    private javax.swing.JLabel saldoTxt;
+    private javax.swing.JLabel studioTxt;
+    private javax.swing.JLabel tempatStudioTxt;
+    private javax.swing.JLabel tiketTxt;
+    private javax.swing.JButton topUpBtn;
+    private javax.swing.JLabel usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

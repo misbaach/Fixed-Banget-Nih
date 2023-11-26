@@ -4,7 +4,6 @@
  */
 package Project;
 
-import Class.Admin;
 import Class.DaftarFilm;
 import Class.Film;
 
@@ -17,17 +16,19 @@ public class LandingAdmin extends LandingPageView{
     /**
      * Creates new form AdminPage
      */
-    public Admin admin;
-    public LandingAdmin(Admin admin) {
+    public String username;
+    public LandingAdmin(String username) {
         super();
         initComponents();
-        this.admin = admin;
+        this.username = username;
+        usernameTxt.setText(username);
     }
     
-    public LandingAdmin(Admin admin, DaftarFilm daftarFilm){
+    public LandingAdmin(String username, DaftarFilm daftarFilm){
         super(daftarFilm);
         initComponents();
-        this.admin = admin;
+        this.username = username;
+        usernameTxt.setText(username);
     }
     
     
@@ -131,7 +132,7 @@ public class LandingAdmin extends LandingPageView{
 
         tambah.setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", "titanicTrailer.png");
         daftarFilm.hapusFilm(" ");
-        LandingAdmin admin = new LandingAdmin(this.admin, daftarFilm);
+        LandingAdmin admin = new LandingAdmin(username, daftarFilm);
         this.dispose();
         admin.setVisible(true);
     }//GEN-LAST:event_btnTambahActionPerformed
@@ -143,7 +144,7 @@ public class LandingAdmin extends LandingPageView{
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         daftarFilm.hapusFilm(namaFilm);
-        LandingAdmin admin = new LandingAdmin(this.admin, daftarFilm);
+        LandingAdmin admin = new LandingAdmin(username, daftarFilm);
         this.dispose();
         admin.setVisible(true);
     }//GEN-LAST:event_btnHapusActionPerformed

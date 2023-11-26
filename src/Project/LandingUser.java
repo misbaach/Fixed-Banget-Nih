@@ -6,7 +6,8 @@ package Project;
 
 import Class.DaftarFilm;
 import Class.Film;
-import Class.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
@@ -19,21 +20,24 @@ public class LandingUser extends LandingPageView {
     /**
      * Creates new form LandingUser
      */
-    public User user;
-    public LandingUser(User user) {
+    public String username;
+
+    public LandingUser(String username) {
         super();
         initComponents();
-        this.user = user;
+        this.username = username;
+        usernameTxt.setText(username);
         tampilTrailer();
     }
-    
-    public LandingUser(User user, DaftarFilm daftarFilm){
+
+    public LandingUser(String username, DaftarFilm daftarFilm) {
         super(daftarFilm);
         initComponents();
-        this.user = user;
+        this.username = username;
+        usernameTxt.setText(username);
         tampilTrailer();
     }
-    
+
     public void tampilTrailer() {
         int ke = 1;
         for (Film gambar : daftarFilm.getFilm()) {
@@ -44,26 +48,22 @@ public class LandingUser extends LandingPageView {
             ke++;
         }
     }
-    
-    
-    
+
     public void pilihLabel(int ke, ImageIcon play) {
         switch (ke) {
-            case 1 ->{
+            case 1 -> {
                 gambar4.setIcon(play);
             }
-            case 2 ->{
+            case 2 -> {
                 gambar5.setIcon(play);
             }
-            case 3 ->{
+            case 3 -> {
                 gambar6.setIcon(play);
             }
             default -> {
             }
         }
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +85,7 @@ public class LandingUser extends LandingPageView {
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         gambar5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        ptofileBtn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -239,11 +239,11 @@ public class LandingUser extends LandingPageView {
                 .addContainerGap())
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserProfile.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        ptofileBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserProfile.png"))); // NOI18N
+        ptofileBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ptofileBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                ptofileBtnMouseClicked(evt);
             }
         });
 
@@ -256,14 +256,14 @@ public class LandingUser extends LandingPageView {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(ptofileBtn)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(ptofileBtn)
                 .addGap(371, 371, 371)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -272,11 +272,18 @@ public class LandingUser extends LandingPageView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Profile user = new Profile();
-        user.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void ptofileBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ptofileBtnMouseClicked
+        Profile profile = new Profile(username);
+        profile.setVisible(true);
+        setVisible(false);
+
+        profile.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_ptofileBtnMouseClicked
 
     private void gambar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar5MouseClicked
         // TODO add your handling code here:
@@ -329,7 +336,6 @@ public class LandingUser extends LandingPageView {
     private javax.swing.JLabel gambar5;
     private javax.swing.JLabel gambar6;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -337,5 +343,6 @@ public class LandingUser extends LandingPageView {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel ptofileBtn;
     // End of variables declaration//GEN-END:variables
 }

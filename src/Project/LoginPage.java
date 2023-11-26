@@ -31,23 +31,23 @@ public class LoginPage extends javax.swing.JFrame {
         this.daftarFilm = daftarFilm;
     }
     
-    public void pindahAdmin(Admin adminData){
+    public void pindahAdmin(String username){
         LandingAdmin admin;
         if(daftarFilm == null){
-            admin = new LandingAdmin(adminData);
+            admin = new LandingAdmin(username);
         }else{
-            admin = new LandingAdmin(adminData, daftarFilm);
+            admin = new LandingAdmin(username, daftarFilm);
         }
         admin.setVisible(true);
         this.dispose();
     }
     
-    public void pindahUser(User userData){
+    public void pindahUser(String username){
         LandingUser user;
         if(daftarFilm == null){
-            user = new LandingUser(userData);
+            user = new LandingUser(username);
         }else{
-            user = new LandingUser(userData, daftarFilm);
+            user = new LandingUser(username, daftarFilm);
         }
         user.setVisible(true);
         this.dispose();
@@ -223,12 +223,12 @@ public class LoginPage extends javax.swing.JFrame {
         String password = userPass[1];
         Login login = check(username, password);
         if (login instanceof User user) {
-            pindahUser(user);
+            pindahUser(username);
 //            LandingPage landingPage = new LandingPage(user);
 //            landingPage.setVisible(true);
         }
         if (login instanceof Admin admin) {
-            pindahAdmin(admin);
+            pindahAdmin(username);
 //            AdminPage adminPage = new AdminPage(admin);
 //            adminPage.setVisible(true);
         }

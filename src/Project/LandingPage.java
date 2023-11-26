@@ -67,9 +67,9 @@ public class LandingPage extends javax.swing.JFrame {
     public void pindah(java.awt.event.MouseEvent evt){
         JLabel label = (JLabel) evt.getSource();
         String nama = label.getText();
-        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
-        pindah.setVisible(true);
-        this.dispose();
+//        ViewPage pindah = new ViewPage(daftarFilm.pilih(nama));
+//        pindah.setVisible(true);
+//        this.dispose();
     }
     
     public void lihatTrailer(int ke){
@@ -472,9 +472,9 @@ public class LandingPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Profile user = new Profile();
-        user.setVisible(true);
-        this.dispose();
+//        Profile user = new Profile();
+//        user.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void gambar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gambar3MouseClicked

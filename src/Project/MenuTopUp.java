@@ -4,6 +4,9 @@
  */
 package Project;
 
+import Class.User;
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author Sulthan Daffa
@@ -13,10 +16,19 @@ public class MenuTopUp extends javax.swing.JFrame {
     /**
      * Creates new form MenuTopUp
      */
-    public MenuTopUp() {
+    public User user;
+    public int nominal;
+    public MenuTopUp(User user) {
         initComponents();
+        this.user = user;
+        usernameTxt.setText(user.getUsername());
     }
 
+    public void besarNominal(JToggleButton button){
+        String nilai = button.getText();
+        nilai = nilai.replace(".", "");
+        this.nominal = Integer.parseInt(nilai);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,20 +40,19 @@ public class MenuTopUp extends javax.swing.JFrame {
 
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
+        pilihan1 = new javax.swing.JToggleButton();
+        pilihan2 = new javax.swing.JToggleButton();
+        pilihan3 = new javax.swing.JToggleButton();
+        pilihan4 = new javax.swing.JToggleButton();
+        pilihan5 = new javax.swing.JToggleButton();
+        pilihan6 = new javax.swing.JToggleButton();
+        pilihan7 = new javax.swing.JToggleButton();
+        topUpBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel6.setBackground(new java.awt.Color(54, 48, 98));
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
@@ -49,31 +60,24 @@ public class MenuTopUp extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jLabel1.setText("Username ");
-
-        jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jLabel2.setText("Password");
+        usernameTxt.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        usernameTxt.setText("Username ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(usernameTxt)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(28, 101, 140));
@@ -83,41 +87,61 @@ public class MenuTopUp extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nominal ");
 
-        jToggleButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton2.setText("50.000");
-        jToggleButton2.setMaximumSize(new java.awt.Dimension(76, 23));
-        jToggleButton2.setMinimumSize(new java.awt.Dimension(76, 23));
-
-        jToggleButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton3.setText("100.000");
-
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton1.setText("150.000");
-
-        jToggleButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton5.setText("200.000");
-
-        jToggleButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton6.setText("250.000");
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        pilihan1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan1.setText("50.000");
+        pilihan1.setMaximumSize(new java.awt.Dimension(76, 23));
+        pilihan1.setMinimumSize(new java.awt.Dimension(76, 23));
+        pilihan1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                pilihan1ActionPerformed(evt);
             }
         });
 
-        jToggleButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton7.setText("300.000");
-        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+        pilihan2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan2.setText("100.000");
+        pilihan2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton7ActionPerformed(evt);
+                pilihan2ActionPerformed(evt);
             }
         });
 
-        jToggleButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton8.setText("500.000");
-        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+        pilihan3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan3.setText("150.000");
+        pilihan3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton8ActionPerformed(evt);
+                pilihan3ActionPerformed(evt);
+            }
+        });
+
+        pilihan4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan4.setText("200.000");
+        pilihan4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihan4ActionPerformed(evt);
+            }
+        });
+
+        pilihan5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan5.setText("250.000");
+        pilihan5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihan5ActionPerformed(evt);
+            }
+        });
+
+        pilihan6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan6.setText("300.000");
+        pilihan6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihan6ActionPerformed(evt);
+            }
+        });
+
+        pilihan7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pilihan7.setText("500.000");
+        pilihan7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihan7ActionPerformed(evt);
             }
         });
 
@@ -129,22 +153,22 @@ public class MenuTopUp extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pilihan5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pilihan6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pilihan7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pilihan1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pilihan2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1)
+                        .addComponent(pilihan3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton5)))
+                        .addComponent(pilihan4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,21 +178,26 @@ public class MenuTopUp extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton3)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton5))
+                    .addComponent(pilihan2)
+                    .addComponent(pilihan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pilihan3)
+                    .addComponent(pilihan4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton8)
-                    .addComponent(jToggleButton7)
-                    .addComponent(jToggleButton6))
+                    .addComponent(pilihan7)
+                    .addComponent(pilihan6)
+                    .addComponent(pilihan5))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(19, 32, 67));
-        jButton1.setText("Top up");
+        topUpBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topUpBtn.setForeground(new java.awt.Color(19, 32, 67));
+        topUpBtn.setText("Top up");
+        topUpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topUpBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +208,7 @@ public class MenuTopUp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(topUpBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -190,27 +219,56 @@ public class MenuTopUp extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(topUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void pilihan5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+        besarNominal(pilihan5);
+    }//GEN-LAST:event_pilihan5ActionPerformed
 
-    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+    private void pilihan6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton7ActionPerformed
+        besarNominal(pilihan6);
+    }//GEN-LAST:event_pilihan6ActionPerformed
 
-    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+    private void pilihan7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton8ActionPerformed
+        besarNominal(pilihan7);
+    }//GEN-LAST:event_pilihan7ActionPerformed
+
+    private void pilihan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan1ActionPerformed
+        // TODO add your handling code here:
+        besarNominal(pilihan1);
+    }//GEN-LAST:event_pilihan1ActionPerformed
+
+    private void pilihan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan2ActionPerformed
+        // TODO add your handling code here:
+        besarNominal(pilihan2);
+    }//GEN-LAST:event_pilihan2ActionPerformed
+
+    private void pilihan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan3ActionPerformed
+        // TODO add your handling code here:
+        besarNominal(pilihan3);
+    }//GEN-LAST:event_pilihan3ActionPerformed
+
+    private void pilihan4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan4ActionPerformed
+        // TODO add your handling code here:
+        besarNominal(pilihan4);
+    }//GEN-LAST:event_pilihan4ActionPerformed
+
+    private void topUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topUpBtnActionPerformed
+        // TODO add your handling code here:
+        user.tambahSaldo(nominal);
+        this.dispose();
+    }//GEN-LAST:event_topUpBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,27 +298,22 @@ public class MenuTopUp extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuTopUp().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JToggleButton pilihan1;
+    private javax.swing.JToggleButton pilihan2;
+    private javax.swing.JToggleButton pilihan3;
+    private javax.swing.JToggleButton pilihan4;
+    private javax.swing.JToggleButton pilihan5;
+    private javax.swing.JToggleButton pilihan6;
+    private javax.swing.JToggleButton pilihan7;
+    private javax.swing.JButton topUpBtn;
+    private javax.swing.JLabel usernameTxt;
     // End of variables declaration//GEN-END:variables
 }
