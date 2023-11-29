@@ -15,12 +15,12 @@ import java.text.NumberFormat;
  * @author Misbach
  */
 public class TransaksiPage extends javax.swing.JFrame {
-    public Film film;
-    public String studio;
-    public String jadwal;
-    public String pilihan;
-    public String username;
-    public User user;
+    private Film film;
+    private String studio;
+    private String jadwal;
+    private String pilihan;
+    private String username;
+    private User user;
     
     public TransaksiPage(Film film, String studio, String jadwal, String pilihan, String username) {
         initComponents();
@@ -32,7 +32,7 @@ public class TransaksiPage extends javax.swing.JFrame {
         setTampil();
     }
     
-    public void setTampil(){
+    private void setTampil(){
         int hargaTotal = film.getStudio(studio).getHarga() * pilihan.trim().split(" ").length;
         studioTxt.setText(studio);
         namaFilmTxt.setText(film.getNama());
@@ -42,7 +42,7 @@ public class TransaksiPage extends javax.swing.JFrame {
         setProfile();
     }
     
-    public void setProfile() {
+    private void setProfile() {
         usernameTxt.setText(username);
         for (int i = 0; i < LoginPage.data.getJumlahUser(); i++) {
             Login login = LoginPage.data.getUser()[i];

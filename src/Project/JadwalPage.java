@@ -8,6 +8,7 @@ import Class.Film;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -19,10 +20,10 @@ public class JadwalPage extends javax.swing.JFrame {
     /**
      * Creates new form DaftarJadwal
      */
-    public Film film;
-    public String studio;
-    public String username;
-    LocalDate today = LocalDate.now();
+    private Film film;
+    private String studio;
+    private String username;
+    private LocalDate today = LocalDate.now();
 
     public JadwalPage(Film film, String studio, String username) {
         initComponents();
@@ -33,7 +34,7 @@ public class JadwalPage extends javax.swing.JFrame {
         tampilJadwal();
     }
 
-    public void tanpilInfo() {
+    private void tanpilInfo() {
         namaFilmTxt.setText(film.getNama());
         studioTxt.setText(studio);
         hariIniTxt.setText(today.toString());
@@ -56,7 +57,7 @@ public class JadwalPage extends javax.swing.JFrame {
         return buttons;
     }
 
-    public void tutupJadwal() {
+    private void tutupJadwal() {
         for (int i = 0; i < 3; i++) {
             JButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
             for (JButton button : buttons) {
@@ -65,9 +66,9 @@ public class JadwalPage extends javax.swing.JFrame {
         }
     }
 
-    public void tampilJadwal() {
+    private void tampilJadwal() {
         tutupJadwal();
-        String[] jadwalFilmArray = film.getJadwalFilm(film.getNama(), studio);
+        ArrayList<String> jadwalFilmArray = film.getJadwalFilm(film.getNama(), studio);
         for (String jadwalFilm : jadwalFilmArray) {
             if (jadwalFilm != null) {
                 String[] jadwal = jadwalFilm.split(" ");
@@ -83,8 +84,7 @@ public class JadwalPage extends javax.swing.JFrame {
         }
     }
 
-    public void pindahKursi(Film film, String studio, String jadwal, String usernmae) {
-        System.out.println(jadwal);
+    private void pindahKursi(Film film, String studio, String jadwal, String usernmae) {
         DaftarKursi daftarKursi = new DaftarKursi(film, studio, jadwal, username);
         daftarKursi.setVisible(true);
         setVisible(false);

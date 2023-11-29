@@ -6,8 +6,12 @@ package Project;
 
 import Class.DaftarFilm;
 import Class.Film;
+import java.awt.Desktop;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
@@ -20,7 +24,7 @@ public class LandingUser extends LandingPageView {
     /**
      * Creates new form LandingUser
      */
-    public String username;
+    private String username;
 
     public LandingUser(String username) {
         super();
@@ -38,7 +42,7 @@ public class LandingUser extends LandingPageView {
         tampilTrailer();
     }
 
-    public void tampilTrailer() {
+    private void tampilTrailer() {
         int ke = 1;
         for (Film gambar : daftarFilm.getFilm()) {
             String trailer = gambar.getTrailer().getTumbnail();
@@ -48,8 +52,20 @@ public class LandingUser extends LandingPageView {
             ke++;
         }
     }
+    
+    private void lihatTrailer(int ke) {
+        Film film = daftarFilm.getFilm().get(ke);
+        String youtubeURL = film.getTrailer().getLink();
+        try {
+            Desktop.getDesktop().browse(new URI(youtubeURL));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            // Penanganan kesalahan jika terjadi masalah saat membuka tautan
+        }
 
-    public void pilihLabel(int ke, ImageIcon play) {
+    }
+
+    private void pilihLabel(int ke, ImageIcon play) {
         switch (ke) {
             case 1 -> {
                 gambar4.setIcon(play);

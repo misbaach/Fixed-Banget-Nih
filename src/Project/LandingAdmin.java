@@ -5,33 +5,33 @@
 package Project;
 
 import Class.DaftarFilm;
-import Class.Film;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
  * @author Sulthan Daffa
  */
-public class LandingAdmin extends LandingPageView{
+public class LandingAdmin extends LandingPageView {
 
     /**
      * Creates new form AdminPage
      */
-    public String username;
+    private String username;
+
     public LandingAdmin(String username) {
         super();
         initComponents();
         this.username = username;
         usernameTxt.setText(username);
     }
-    
-    public LandingAdmin(String username, DaftarFilm daftarFilm){
+
+    public LandingAdmin(String username, DaftarFilm daftarFilm) {
         super(daftarFilm);
         initComponents();
         this.username = username;
         usernameTxt.setText(username);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,18 +127,34 @@ public class LandingAdmin extends LandingPageView{
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
-        daftarFilm.tambahFilm("", "", "", "", "Titanic (2).jpg");
-        Film tambah = daftarFilm.getFilm().get(daftarFilm.getJumlahFilm()-1);
-
-        tambah.setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", "titanicTrailer.png");
-        daftarFilm.hapusFilm(" ");
-        LandingAdmin admin = new LandingAdmin(username, daftarFilm);
-        this.dispose();
-        admin.setVisible(true);
+        if (daftarFilm.getJumlahFilm() < 3) {
+            FormFilm formFilm = new FormFilm(daftarFilm);
+            formFilm.setVisible(true);
+            setVisible(false);
+            formFilm.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    LandingAdmin admin = new LandingAdmin(username, daftarFilm);
+                    dispose();
+                    admin.setVisible(true);
+                }
+            });
+        }
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+        FormFilm formFilm = new FormFilm(daftarFilm, namaFilm, "edit");
+        formFilm.setVisible(true);
+        setVisible(false);
+        formFilm.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                LandingAdmin admin = new LandingAdmin(username, daftarFilm);
+                dispose();
+                admin.setVisible(true);
+            }
+        });
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
@@ -180,8 +196,6 @@ public class LandingAdmin extends LandingPageView{
         //</editor-fold>
 
         /* Create and display the form */
-        
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

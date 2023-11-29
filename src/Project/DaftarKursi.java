@@ -17,11 +17,11 @@ import javax.swing.JToggleButton;
  */
 public class DaftarKursi extends javax.swing.JFrame {
 
-    public Film film;
-    public String studio;
-    public String jadwal;
-    public String username;
-    public String kursiDipilih = "";
+    private Film film;
+    private String studio;
+    private String jadwal;
+    private String username;
+    private String kursiDipilih = "";
 
     public DaftarKursi(Film film, String studio, String jadwal, String username) {
         initComponents();

@@ -10,7 +10,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.Locale;
 
 /**
  *
@@ -21,8 +20,8 @@ public class Profile extends javax.swing.JFrame {
     /**
      * Creates new form TopUpForm
      */
-    public String username;
-    public User user;
+    private String username;
+    private User user;
 
     public Profile(String username) {
         initComponents();
@@ -30,7 +29,7 @@ public class Profile extends javax.swing.JFrame {
         setProfile();
     }
 
-    public void setProfile() {
+    private void setProfile() {
         usernameTxt.setText(username);
         for (int i = 0; i < LoginPage.data.getJumlahUser(); i++) {
             Login login = LoginPage.data.getUser()[i];

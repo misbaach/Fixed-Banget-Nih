@@ -19,10 +19,10 @@ import javax.swing.JLabel;
  */
 public class ViewPage extends javax.swing.JFrame {
 
-    public Film film;
-    public DaftarFilm daftarFilm;
-    public String username;
-    public Data data = LoginPage.data;
+    private Film film;
+    private DaftarFilm daftarFilm;
+    private String username;
+    private Data data = LoginPage.data;
 
     public ViewPage(DaftarFilm daftarFilm, String nama, String username) {
         initComponents();
@@ -33,14 +33,14 @@ public class ViewPage extends javax.swing.JFrame {
         tampilInfo();
     }
 
-    public void tampilData() {
+    private void tampilData() {
         String nama = film.getGambar();
         URL imageURL = getClass().getResource("/Images/" + nama);
         ImageIcon icon = new ImageIcon(imageURL);
         gambar1.setIcon(icon);
     }
 
-    public void tampilInfo() {
+    private void tampilInfo() {
         String nama = film.getNama();
         String genre = "Genre : " + film.getGenre();
         String durasi = "Durasi : " + film.getDurasi();
@@ -53,7 +53,7 @@ public class ViewPage extends javax.swing.JFrame {
         sinopsisTxt.setHorizontalAlignment(JLabel.CENTER);
     }
 
-    public void kembali(String username, DaftarFilm daftarFilm) {
+    private void kembali(String username, DaftarFilm daftarFilm) {
         if (data.checkAdmin(username)) {
             LandingAdmin admin = new LandingAdmin(username, daftarFilm);
             admin.setVisible(true);
@@ -64,7 +64,7 @@ public class ViewPage extends javax.swing.JFrame {
         this.dispose();
     }
 
-    public void bukaJadwal(Film film, String namaStudio, String username) {
+    private void bukaJadwal(Film film, String namaStudio, String username) {
         JadwalPage jadwalPage = new JadwalPage(film, namaStudio, username);
         jadwalPage.setVisible(true);
         setVisible(false);

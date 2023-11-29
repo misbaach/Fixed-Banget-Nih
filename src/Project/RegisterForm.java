@@ -5,7 +5,6 @@
 package Project;
 
 import Class.Admin;
-import Class.Login;
 import static Project.LoginPage.data;
 import javax.swing.JOptionPane;
 
@@ -23,7 +22,7 @@ public class RegisterForm extends javax.swing.JFrame {
         initComponents();
     }
 
-    public String[] getTextFromView() {
+    private String[] getTextFromView() {
         String[] userPass = new String[2];
         char[] passwordChar;
 
@@ -34,22 +33,22 @@ public class RegisterForm extends javax.swing.JFrame {
         return userPass;
     }
 
-    public boolean checkAdaData(String username, String password) {
+    private boolean checkAdaData(String username, String password) {
 
         for (int i = 0; i < data.getJumlahAdmin(); i++) {
-            if ((username.equals(data.getAdmin()[i].username))) {
+            if ((username.equals(data.getAdmin()[i].getUsername()))) {
                 return true;
             }
         }
         for (int j = 0; j < data.getJumlahUser(); j++) {
-            if ((username.equals(data.getUser()[j].username))) {
+            if ((username.equals(data.getUser()[j].getUsername()))) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean check(String username, String kata[], String password) {
+    private boolean check(String username, String kata[], String password) {
         Admin admin = (Admin) data.getAdmin()[0];
         if (username.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "Password atau username tidak boleh kosong.");
@@ -69,7 +68,7 @@ public class RegisterForm extends javax.swing.JFrame {
         return false;
     }
 
-    public void regis() {
+    private void regis() {
         String[] userPass = getTextFromView();
         String username = userPass[0];
         String password = userPass[1];

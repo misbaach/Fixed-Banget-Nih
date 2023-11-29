@@ -24,7 +24,7 @@ public class LandingPageView extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public DaftarFilm daftarFilm;
+    protected DaftarFilm daftarFilm;
     protected String namaFilm;
 
     public LandingPageView() {
@@ -33,61 +33,61 @@ public class LandingPageView extends javax.swing.JFrame {
         filmAwal();
         tampilGambar();
     }
-    
-    public LandingPageView(DaftarFilm daftarFilm){
+
+    public LandingPageView(DaftarFilm daftarFilm) {
         initComponents();
         this.daftarFilm = daftarFilm;
         tampilGambar();
     }
-    
 
-    public void filmAwal() {
+    private void filmAwal() {
         daftarFilm.tambahFilm("a", "nasb", "10", "This is a dynamic text that can be very long and will be wrapped automatically", "Diambang Kematian (3).jpg");
         daftarFilm.tambahFilm("b", "ljasn", "20", "This is a dynamic text that can be very long and will be wrapped automatically", "Titanic (2).jpg");
         daftarFilm.tambahFilm("c", "sabdb", "30", "This is a dynamic text that can be very long and will be wrapped automatically", "Susuk (1).jpg");
         Film satu = daftarFilm.getFilm().get(0);
         Film dua = daftarFilm.getFilm().get(1);
         Film tiga = daftarFilm.getFilm().get(2);
-        
+
         aturStudio(satu);
         aturStudio(dua);
         aturStudio(tiga);
         LocalDate today = LocalDate.now();
         satu.getStudio("CGV").setHarga(20000);
         satu.getStudio("XXI").setHarga(30000);
-        
-        satu.setJadwal("CGV", today +" 12.00");
-        satu.setJadwal("CGV", today +" 13.30");
+
+        satu.setJadwal("CGV", today + " 12.00");
+        satu.setJadwal("CGV", today + " 13.30");
         satu.setJadwal("CGV", today.plusDays(1) + " 10.30");
-        satu.setJadwal("XXI", today +" 10.30");
-        dua.setJadwal("XXI", today +" 12.00");
-        
-        
-        
+        satu.setJadwal("XXI", today + " 10.30");
+        dua.setJadwal("XXI", today + " 12.00");
+
         satu.setTrailer("https://www.youtube.com/watch?v=CNWdWAK0rOQ", "diambangkematiantrailer.png");
         dua.setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", "titanicTrailer.png");
         tiga.setTrailer("https://www.youtube.com/watch?v=6sJRZepIGsk", "susukTrailer.png");
     }
-    
-    public void aturStudio(Film film){
+
+    private void aturStudio(Film film) {
         film.setStudio("CGV", "Surabaya");
         film.setStudio("XXI", "Surabaya");
         film.setStudio("iMAX", "Surabaya");
     }
-    
 
-    public void tampilGambar() {
+    private void tampilGambar() {
         int ke = 1;
         for (Film gambar : daftarFilm.getFilm()) {
             String nama = gambar.getGambar();
             URL imageURL = getClass().getResource("/Images/" + nama);
-            ImageIcon icon = new ImageIcon(imageURL);
-            pilihLabel(ke, icon, nama);
+            if (imageURL != null) {
+                ImageIcon icon = new ImageIcon(imageURL);
+                pilihLabel(ke, icon, nama);
+            }else{
+                pilihLabel(ke, null, nama);
+            }
             ke++;
         }
     }
 
-    public void pindah(java.awt.event.MouseEvent evt) {
+    private void pindah(java.awt.event.MouseEvent evt) {
         JLabel label = (JLabel) evt.getSource();
         String nama = label.getText();
         String username = usernameTxt.getText();
@@ -101,19 +101,7 @@ public class LandingPageView extends javax.swing.JFrame {
         }
     }
 
-    public void lihatTrailer(int ke) {
-        Film film = daftarFilm.getFilm().get(ke);
-        String youtubeURL = film.getTrailer().getLink();
-        try {
-            Desktop.getDesktop().browse(new URI(youtubeURL));
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-            // Penanganan kesalahan jika terjadi masalah saat membuka tautan
-        }
-
-    }
-
-    public void pilihLabel(int ke, ImageIcon icon, String nama) {
+    private void pilihLabel(int ke, ImageIcon icon, String nama) {
         switch (ke) {
             case 1 -> {
                 gambar1.setIcon(icon);
@@ -168,6 +156,7 @@ public class LandingPageView extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setPreferredSize(new java.awt.Dimension(228, 305));
 
+        gambar1.setForeground(new java.awt.Color(51, 51, 51));
         gambar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gambar1MouseClicked(evt);
@@ -198,6 +187,7 @@ public class LandingPageView extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setPreferredSize(new java.awt.Dimension(228, 305));
 
+        gambar2.setForeground(new java.awt.Color(51, 51, 51));
         gambar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gambar2MouseClicked(evt);
@@ -224,6 +214,7 @@ public class LandingPageView extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(51, 51, 51));
         jPanel13.setPreferredSize(new java.awt.Dimension(228, 305));
 
+        gambar3.setForeground(new java.awt.Color(51, 51, 51));
         gambar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gambar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -339,7 +330,7 @@ public class LandingPageView extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
-        if(daftarFilm == null){
+        if (daftarFilm == null) {
             daftarFilm.tambahFilm(" ", "", "", "", "");
         }
         LoginPage loginPage = new LoginPage(daftarFilm);

@@ -16,19 +16,42 @@ public class MenuTopUp extends javax.swing.JFrame {
     /**
      * Creates new form MenuTopUp
      */
-    public User user;
-    public int nominal;
+    private User user;
+    private int nominal;
     public MenuTopUp(User user) {
         initComponents();
         this.user = user;
         usernameTxt.setText(user.getUsername());
     }
 
-    public void besarNominal(JToggleButton button){
+    private void besarNominal(JToggleButton button){
         String nilai = button.getText();
         nilai = nilai.replace(".", "");
         this.nominal = Integer.parseInt(nilai);
     }
+    
+    private JToggleButton[] daftarBtn() {
+        JToggleButton[] allToggleButtons = {
+            pilihan1, pilihan2, pilihan3, pilihan4, pilihan5, pilihan6, pilihan7
+        };
+        return allToggleButtons;
+    }
+    
+    private void resetPilihJadwal() {
+        for (int i = 0; i < 3; i++) {
+            JToggleButton[] buttons = daftarBtn();
+            for (JToggleButton button : buttons) {
+                button.setSelected(false);
+            }
+        }
+    }
+    
+    private void pilih(JToggleButton button){
+        resetPilihJadwal();
+        button.setSelected(true);
+        besarNominal(button);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -231,37 +254,37 @@ public class MenuTopUp extends javax.swing.JFrame {
 
     private void pilihan5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan5ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan5);
+        pilih(pilihan5);
     }//GEN-LAST:event_pilihan5ActionPerformed
 
     private void pilihan6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan6ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan6);
+        pilih(pilihan6);
     }//GEN-LAST:event_pilihan6ActionPerformed
 
     private void pilihan7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan7ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan7);
+        pilih(pilihan7);
     }//GEN-LAST:event_pilihan7ActionPerformed
 
     private void pilihan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan1ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan1);
+        pilih(pilihan1);
     }//GEN-LAST:event_pilihan1ActionPerformed
 
     private void pilihan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan2ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan2);
+        pilih(pilihan2);
     }//GEN-LAST:event_pilihan2ActionPerformed
 
     private void pilihan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan3ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan3);
+        pilih(pilihan3);
     }//GEN-LAST:event_pilihan3ActionPerformed
 
     private void pilihan4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihan4ActionPerformed
         // TODO add your handling code here:
-        besarNominal(pilihan4);
+        pilih(pilihan6);
     }//GEN-LAST:event_pilihan4ActionPerformed
 
     private void topUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topUpBtnActionPerformed
