@@ -4,33 +4,48 @@
  */
 package Class;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ASUS
  */
 public class Studio {
 
-    public int harga;
-    public String nama;
-    public String tempat;
-    public String jadwal[];
-    public int jumlahJadwal;
-    public Kursi kursi[];
+    private int harga;
+    private String nama;
+    private String tempat;
+    private ArrayList<String> jadwal;
+    private int jumlahJadwal;
+    private ArrayList<Kursi> kursi;
 
     public Studio(String nama, String tempat) {
         this.nama = nama;
         this.tempat = tempat;
-        this.jadwal = new String[12];
-        this.kursi = new Kursi[12];
+        this.jadwal = new ArrayList<>();
+        this.kursi = new ArrayList<>();
         this.jumlahJadwal = 0;
     }
 
-    public void tambahJadwal(String jadwal) {
-        if (jumlahJadwal < 12) {
-            this.jadwal[jumlahJadwal] = jadwal;
-            kursi[jumlahJadwal] = new Kursi(jadwal);
+     public void tambahJadwal(String jadwal) {
+        if (this.jadwal.size() < 12) {
+            this.jadwal.add(jadwal);
+            kursi.add(new Kursi(jadwal));
             jumlahJadwal++;
         }
+    }
+
+    public void hapusJadwal(String jadwal) {
+        int index = this.jadwal.indexOf(jadwal);
+        if (index != -1) {
+            this.jadwal.remove(index);
+            kursi.remove(index);
+            jumlahJadwal--;
+        }
+    }
+    
+     public boolean cekJadwal(String jadwal) {
+        return this.jadwal.contains(jadwal);
     }
 
     public void beliKursi(String jadwalFilm, String id) {
@@ -41,10 +56,16 @@ public class Studio {
         this.harga = harga;
     }
 
+    public void setTempat(String tempat) {
+        this.tempat = tempat;
+    }
+    
+    
+
     public Kursi getKursi(String jadwal) {
         for (int i = 0; i < jumlahJadwal; i++) {
-            if (kursi[i].getJadwal().equals(jadwal)) {
-                return kursi[i];
+            if (kursi.get(i).getJadwal().equals(jadwal)) {
+                return kursi.get(i);
             }
         }
         return null;
@@ -58,7 +79,7 @@ public class Studio {
         return tempat;
     }
 
-    public String[] getJadwal() {
+    public ArrayList<String> getJadwal() {
         return jadwal;
     }
 

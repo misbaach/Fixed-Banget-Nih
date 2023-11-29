@@ -9,10 +9,10 @@ package Class;
  * @author ASUS
  */
 public final class Data {
-    public Login user[];
-    public Login admin[];
-    public int jumlahUser;
-    public int jumlahAdmin;
+    private Login user[];
+    private Login admin[];
+    private int jumlahUser;
+    private int jumlahAdmin;
     
     public Data(){
         user = new User[10];
@@ -60,7 +60,7 @@ public final class Data {
     public boolean checkAdmin(String username) {
 
         for (int i = 0; i < jumlahAdmin; i++) {
-            if (username.equals(admin[i].username)) {
+            if (username.equals(admin[i].getUsername())) {
                 return true;
             }
         }
@@ -69,7 +69,7 @@ public final class Data {
     
     public boolean checkUser(String username) {
         for (int j = 0; j < jumlahUser; j++) {
-            if (username.equals(user[j].username)) {
+            if (username.equals(user[j].getUsername())) {
                 return true;
             }
         }

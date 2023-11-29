@@ -9,8 +9,8 @@ package Class;
  * @author ASUS
  */
 public class Trailer {
-    public String link;
-    public String tumbnail;
+    private String link;
+    private String tumbnail;
     
     public Trailer(String link, String tumbnail){
         this.link = link;

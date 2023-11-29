@@ -4,19 +4,21 @@
  */
 package Class;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DAVA RAJIF C
  */
 public class Film {
-    public String nama;
-    public String genre;
-    public String durasi;
-    public String sinopsis;
-    public String gambar;
-    public Trailer trailer;
-    public Studio studio[];
-    public int jumlahStudio;
+    private String nama;
+    private String genre;
+    private String durasi;
+    private String sinopsis;
+    private String gambar;
+    private Trailer trailer;
+    private Studio studio[];
+    private int jumlahStudio;
 
     public Film(String nama, String genre, String durasi, String sinopsis, String gambar){
         this.nama = nama;
@@ -26,6 +28,13 @@ public class Film {
         this.gambar = gambar;
         this.studio = new Studio[3]; 
         this.jumlahStudio = 0;
+    }
+    
+    public void setFilm(String genre, String durasi, String sinopsis, String gambar){
+        this.genre = genre;
+        this.durasi = durasi;
+        this.sinopsis = sinopsis;
+        this.gambar = gambar;
     }
     
     public void setStudio(String nama, String lokasi){
@@ -85,7 +94,7 @@ public class Film {
     }
     
     
-    public String[] getJadwalFilm(String namaFilm, String namaStudio) {
+    public ArrayList<String> getJadwalFilm(String namaFilm, String namaStudio) {
         // Loop melalui setiap studio
         for (int i = 0; i < jumlahStudio; i++) {
             // Loop melalui setiap jadwal dalam studio

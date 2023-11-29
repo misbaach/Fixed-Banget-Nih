@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * @author ASUS
  */
 public class Kursi {
-    public String jadwal;
-    public ArrayList<String> sedia;
-    public ArrayList<String> terjual;
+    private String jadwal;
+    private ArrayList<String> sedia;
+    private ArrayList<String> terjual;
 
     public Kursi(String jadwal){
         this.jadwal = jadwal;

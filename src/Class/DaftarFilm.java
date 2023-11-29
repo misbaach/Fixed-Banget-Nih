@@ -11,8 +11,8 @@ import java.util.ArrayList;
  * @author ASUS
  */
 public class DaftarFilm {
-    public ArrayList<Film> film;
-    public int jumlahFilm;
+    private ArrayList<Film> film;
+    private int jumlahFilm;
     
     public DaftarFilm(){
         film = new ArrayList<>();
@@ -46,11 +46,7 @@ public class DaftarFilm {
     
     public void editFilm(String nama, String genre, String durasi, String sinopsis, String gambar){
         Film cek = pilih(nama);
-        if(cek != null){
-            int index = film.indexOf(cek);
-            Film filmBaru = new Film(nama, genre, durasi, sinopsis, gambar);
-            film.set(index, filmBaru);
-        }
+        cek.setFilm(genre, durasi, sinopsis, gambar);
     }
 
     public ArrayList<Film> getFilm() {

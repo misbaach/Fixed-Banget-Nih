@@ -9,7 +9,7 @@ package Class;
  * @author ASUS
  */
 public class User extends Login{
-    public int saldo;
+    private int saldo;
     
     public User(String username, String password){
         super(username, password);

@@ -9,7 +9,7 @@ package Class;
  * @author Sulthan Daffa
  */
 public class Admin extends Login{
-    public String kode;
+    private String kode;
     
     public Admin(String username, String password){
         super(username, password);
