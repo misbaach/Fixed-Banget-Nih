@@ -9,6 +9,7 @@ import Class.DaftarFilm;
 import Class.Data;
 import Class.Login;
 import Class.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -230,14 +231,15 @@ public class LoginPage extends javax.swing.JFrame {
 //            LandingPage landingPage = new LandingPage(user);
 //            landingPage.setVisible(true);
         }
-        if (login instanceof Admin admin) {
+        else if (login instanceof Admin admin) {
             pindahAdmin(username);
             this.dispose();
 //            AdminPage adminPage = new AdminPage(admin);
 //            adminPage.setVisible(true);
         }
-
-        
+        else{
+            JOptionPane.showMessageDialog(this, "username dan passsword salah");
+        }
     }//GEN-LAST:event_btnMasukActionPerformed
 
     private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
