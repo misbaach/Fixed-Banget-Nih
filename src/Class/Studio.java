@@ -59,8 +59,6 @@ public class Studio {
     public void setTempat(String tempat) {
         this.tempat = tempat;
     }
-    
-    
 
     public Kursi getKursi(String jadwal) {
         for (int i = 0; i < jumlahJadwal; i++) {
