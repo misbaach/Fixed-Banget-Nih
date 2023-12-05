@@ -5,6 +5,7 @@
 package Project;
 
 import Class.Film;
+import Class.SetButton;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ import javax.swing.JButton;
  *
  * @author ASUS
  */
-public class JadwalPage extends javax.swing.JFrame {
+public class JadwalPage extends javax.swing.JFrame implements SetButton{
 
     /**
      * Creates new form DaftarJadwal
@@ -31,7 +32,8 @@ public class JadwalPage extends javax.swing.JFrame {
         this.studio = studio;
         this.username = username;
         tanpilInfo();
-        tampilJadwal();
+        pilihButton();
+        setLocationRelativeTo(null);
     }
 
     private void tanpilInfo() {
@@ -42,7 +44,7 @@ public class JadwalPage extends javax.swing.JFrame {
         lusaTxt.setText(today.plusDays(2).toString());
     }
 
-    private JButton[] daftarBtnSektor(String sektor) {
+    private JButton[] daftarBtn(String sektor) {
         JButton[] buttons;
 
         if (sektor.equals(today.toString())) {
@@ -57,23 +59,23 @@ public class JadwalPage extends javax.swing.JFrame {
         return buttons;
     }
 
-    private void tutupJadwal() {
+    public void disableButton() {
         for (int i = 0; i < 3; i++) {
-            JButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
+            JButton[] buttons = daftarBtn(today.plusDays(i).toString());
             for (JButton button : buttons) {
                 button.setEnabled(false);
             }
         }
     }
 
-    private void tampilJadwal() {
-        tutupJadwal();
+    public void pilihButton() {
+        disableButton();
         ArrayList<String> jadwalFilmArray = film.getJadwalFilm(film.getNama(), studio);
         for (String jadwalFilm : jadwalFilmArray) {
             if (jadwalFilm != null) {
                 String[] jadwal = jadwalFilm.split(" ");
                 for (int i = 0; i < 3; i++) {
-                    JButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
+                    JButton[] buttons = daftarBtn(today.plusDays(i).toString());
                     for (JButton button : buttons) {
                         if (jadwal[0].equals(today.plusDays(i).toString()) && jadwal[1].contains(button.getText())) {
                             button.setEnabled(true);
@@ -84,7 +86,7 @@ public class JadwalPage extends javax.swing.JFrame {
         }
     }
 
-    private void pindahKursi(Film film, String studio, String jadwal, String usernmae) {
+    private void pindahKursi(Film film, String studio, String jadwal, String username) {
         DaftarKursi daftarKursi = new DaftarKursi(film, studio, jadwal, username);
         daftarKursi.setVisible(true);
         setVisible(false);
@@ -93,7 +95,7 @@ public class JadwalPage extends javax.swing.JFrame {
             @Override
             public void windowClosed(WindowEvent e) {
                 tanpilInfo();
-                tampilJadwal();
+                pilihButton();
                 setVisible(true);
             }
         });

@@ -24,11 +24,13 @@ public class LoginPage extends javax.swing.JFrame {
 
     public LoginPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public LoginPage(DaftarFilm daftarFilm) {
         initComponents();
         this.daftarFilm = daftarFilm;
+        setLocationRelativeTo(null);
     }
     
     private void pindahAdmin(String username){

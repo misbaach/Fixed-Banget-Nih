@@ -5,17 +5,17 @@
 package Project;
 
 import Class.Film;
-import Class.Kursi;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.JToggleButton;
+import Class.SetToggleButton;
 
 /**
  *
  * @author Misbach
  */
-public class DaftarKursi extends javax.swing.JFrame {
+public class DaftarKursi extends javax.swing.JFrame implements SetToggleButton{
 
     private Film film;
     private String studio;
@@ -29,17 +29,16 @@ public class DaftarKursi extends javax.swing.JFrame {
         this.studio = studio;
         this.jadwal = jadwal;
         this.username = username;
-        disableTerjual();
+        disableButton();
+        setLocationRelativeTo(null);
     }
-
-    
 
     private int pilihan() {
         String[] kursiArray = kursiDipilih.trim().split(" ");
         return kursiArray.length;
     }
 
-    private JToggleButton[] daftarBtn() {
+    public JToggleButton[] daftarBtn() {
         JToggleButton[] allToggleButtons = {
             btnA1, btnA2, btnA3, btnA4, btnA5, btnA6, btnA7, btnA8,
             btnB1, btnB2, btnB3, btnB4, btnB5, btnB6, btnB7, btnB8,
@@ -49,7 +48,8 @@ public class DaftarKursi extends javax.swing.JFrame {
         return allToggleButtons;
     }
 
-    private void book(String kursi) {
+    public void pilihButton(JToggleButton button) {
+        String kursi = button.getText();
         if (kursi != null && !kursi.isEmpty()) {
             if (kursiDipilih.contains(kursi)) {
                 kursiDipilih = kursiDipilih.replace(kursi + " ", "");
@@ -62,10 +62,10 @@ public class DaftarKursi extends javax.swing.JFrame {
             tampilkanHarga();
 
             int pilihanmu = pilihan();
-            for (JToggleButton button : daftarBtn()) {
-                if (!kursiDipilih.contains(button.getActionCommand())) {
-                    button.setEnabled(pilihanmu < 4);
-                    disableTerjual();
+            for (JToggleButton tombol : daftarBtn()) {
+                if (!kursiDipilih.contains(tombol.getActionCommand())) {
+                    tombol.setEnabled(pilihanmu < 4);
+                    disableButton();
                 }
             }
         }
@@ -83,7 +83,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         hartot.setText(harga);
     }
 
-    private void disableTerjual() {
+    public void disableButton() {
         ArrayList<String> terjual = film.getStudio(studio).getKursi(jadwal).getTerjual();
         for (JToggleButton button : daftarBtn()) {
             if (terjual.contains(button.getText())) {
@@ -798,7 +798,7 @@ public class DaftarKursi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD3ActionPerformed
-        book("D3");
+        pilihButton(btnD3);
         tampilkanHarga();
     }//GEN-LAST:event_btnD3ActionPerformed
 
@@ -809,7 +809,7 @@ public class DaftarKursi extends javax.swing.JFrame {
         bayar.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                disableTerjual();
+                disableButton();
                 muncul.setText("");
                 hartot.setText("");
                 kursiDipilih = "";
@@ -819,158 +819,158 @@ public class DaftarKursi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBayarActionPerformed
 
     private void btnB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB6ActionPerformed
-        book("B6");
+        pilihButton(btnB6);
         tampilkanHarga();
     }//GEN-LAST:event_btnB6ActionPerformed
 
     private void btnA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA1ActionPerformed
-        book("A1");
+        pilihButton(btnA1);
         tampilkanHarga();
     }//GEN-LAST:event_btnA1ActionPerformed
 
     private void btnA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA2ActionPerformed
-        book("A2");
+        pilihButton(btnA2);
         tampilkanHarga();
 
     }//GEN-LAST:event_btnA2ActionPerformed
 
     private void btnA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA3ActionPerformed
-        book("A3");
+        pilihButton(btnA3);
         tampilkanHarga();
     }//GEN-LAST:event_btnA3ActionPerformed
 
     private void btnA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA4ActionPerformed
-        book("A4");
+        pilihButton(btnA4);
         tampilkanHarga();
     }//GEN-LAST:event_btnA4ActionPerformed
 
     private void btnA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA6ActionPerformed
-        book("A6");
+        pilihButton(btnA6);
         tampilkanHarga();
     }//GEN-LAST:event_btnA6ActionPerformed
 
     private void btnA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA8ActionPerformed
-        book("A8");
+        pilihButton(btnA8);
         tampilkanHarga();
     }//GEN-LAST:event_btnA8ActionPerformed
 
     private void btnB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB1ActionPerformed
-        book("B1");
+        pilihButton(btnB1);
         tampilkanHarga();
     }//GEN-LAST:event_btnB1ActionPerformed
 
     private void btnB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB2ActionPerformed
-        book("B2");
+        pilihButton(btnB2);
         tampilkanHarga();
     }//GEN-LAST:event_btnB2ActionPerformed
 
     private void btnB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB3ActionPerformed
-        book("B3");
+        pilihButton(btnB3);
         tampilkanHarga();
     }//GEN-LAST:event_btnB3ActionPerformed
 
     private void btnB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB4ActionPerformed
-        book("B4");
+        pilihButton(btnB4);
         tampilkanHarga();
     }//GEN-LAST:event_btnB4ActionPerformed
 
     private void btnB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB5ActionPerformed
-        book("B5");
+        pilihButton(btnB5);
         tampilkanHarga();
     }//GEN-LAST:event_btnB5ActionPerformed
 
     private void btnB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB7ActionPerformed
-        book("B7");
+        pilihButton(btnB7);
         tampilkanHarga();
     }//GEN-LAST:event_btnB7ActionPerformed
 
     private void btnB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnB8ActionPerformed
-        book("B8");
+        pilihButton(btnB8);
         tampilkanHarga();
     }//GEN-LAST:event_btnB8ActionPerformed
 
     private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
-        book("C1");
+        pilihButton(btnC1);
         tampilkanHarga();
     }//GEN-LAST:event_btnC1ActionPerformed
 
     private void btnC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC2ActionPerformed
-        book("C2");
+        pilihButton(btnC2);
         tampilkanHarga();
     }//GEN-LAST:event_btnC2ActionPerformed
 
     private void btnC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC3ActionPerformed
-        book("C3");
+        pilihButton(btnC3);
         tampilkanHarga();
     }//GEN-LAST:event_btnC3ActionPerformed
 
     private void btnC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC4ActionPerformed
-        book("C4");
+        pilihButton(btnC4);
         tampilkanHarga();
     }//GEN-LAST:event_btnC4ActionPerformed
 
     private void btnC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC5ActionPerformed
-        book("C5");
+        pilihButton(btnC5);
         tampilkanHarga();
     }//GEN-LAST:event_btnC5ActionPerformed
 
     private void btnC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC6ActionPerformed
-        book("C6");
+        pilihButton(btnC6);
         tampilkanHarga();
     }//GEN-LAST:event_btnC6ActionPerformed
 
     private void btnC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC7ActionPerformed
-        book("C7");
+        pilihButton(btnC7);
         tampilkanHarga();
     }//GEN-LAST:event_btnC7ActionPerformed
 
     private void btnC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC8ActionPerformed
-        book("C8");
+        pilihButton(btnC8);
         tampilkanHarga();
     }//GEN-LAST:event_btnC8ActionPerformed
 
     private void btnD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD1ActionPerformed
-        book("D1");
+        pilihButton(btnD1);
         tampilkanHarga();
     }//GEN-LAST:event_btnD1ActionPerformed
 
     private void btnD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD2ActionPerformed
-        book("D2");
+        pilihButton(btnD2);
         tampilkanHarga();
     }//GEN-LAST:event_btnD2ActionPerformed
 
     private void btnD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD4ActionPerformed
-        book("D4");
+        pilihButton(btnD4);
         tampilkanHarga();
     }//GEN-LAST:event_btnD4ActionPerformed
 
     private void btnD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD5ActionPerformed
-        book("D5");
+        pilihButton(btnD5);
         tampilkanHarga();
     }//GEN-LAST:event_btnD5ActionPerformed
 
     private void btnD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD6ActionPerformed
-        book("D6");
+        pilihButton(btnD6);
         tampilkanHarga();
     }//GEN-LAST:event_btnD6ActionPerformed
 
     private void btnD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD7ActionPerformed
-        book("D7");
+        pilihButton(btnD7);
         tampilkanHarga();
     }//GEN-LAST:event_btnD7ActionPerformed
 
     private void btnD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnD8ActionPerformed
-        book("D8");
+        pilihButton(btnD8);
         tampilkanHarga();
     }//GEN-LAST:event_btnD8ActionPerformed
 
     private void btnA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA5ActionPerformed
-        book("A5");
+        pilihButton(btnA5);
         tampilkanHarga();
     }//GEN-LAST:event_btnA5ActionPerformed
 
     private void btnA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA7ActionPerformed
-        book("A7");
+        pilihButton(btnA7);
         tampilkanHarga();
     }//GEN-LAST:event_btnA7ActionPerformed
 

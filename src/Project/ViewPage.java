@@ -22,7 +22,7 @@ public class ViewPage extends javax.swing.JFrame {
     private Film film;
     private DaftarFilm daftarFilm;
     private String username;
-    private Data data = LoginPage.data;
+    
 
     public ViewPage(DaftarFilm daftarFilm, String nama, String username) {
         initComponents();
@@ -31,6 +31,7 @@ public class ViewPage extends javax.swing.JFrame {
         this.film = daftarFilm.pilih(nama);
         tampilData();
         tampilInfo();
+        setLocationRelativeTo(null);
     }
 
     private void tampilData() {
@@ -54,6 +55,7 @@ public class ViewPage extends javax.swing.JFrame {
     }
 
     private void kembali(String username, DaftarFilm daftarFilm) {
+        Data data = LoginPage.data;
         if (data.checkAdmin(username)) {
             LandingAdmin admin = new LandingAdmin(username, daftarFilm);
             admin.setVisible(true);
@@ -168,7 +170,7 @@ public class ViewPage extends javax.swing.JFrame {
                 .addComponent(durasiTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sinopsisTxt)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
@@ -339,7 +341,7 @@ public class ViewPage extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kembaliBtn)

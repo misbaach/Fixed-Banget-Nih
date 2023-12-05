@@ -25,6 +25,7 @@ public class FormFilm extends javax.swing.JFrame {
     public FormFilm(DaftarFilm daftarFilm) {
         initComponents();
         this.daftarFilm = daftarFilm;
+        setLocationRelativeTo(null);
     }
     
     public FormFilm(DaftarFilm daftarFilm, String pilihan, String menu) {
@@ -33,6 +34,7 @@ public class FormFilm extends javax.swing.JFrame {
         this.pilihan = pilihan;
         this.menu = menu;
         tampil();
+        setLocationRelativeTo(null);
     }
     
     private void tampil(){
@@ -99,8 +101,8 @@ public class FormFilm extends javax.swing.JFrame {
         inputThumbnail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         inputLinkTrailer = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBatal = new javax.swing.JButton();
+        btnAturJadwal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -210,22 +212,22 @@ public class FormFilm extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(153, 153, 153));
-        jButton1.setText("Batal");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBatal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBatal.setForeground(new java.awt.Color(153, 153, 153));
+        btnBatal.setText("Batal");
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBatalActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(233, 184, 36));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(19, 32, 67));
-        jButton2.setText("Atur Jadwal");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAturJadwal.setBackground(new java.awt.Color(233, 184, 36));
+        btnAturJadwal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAturJadwal.setForeground(new java.awt.Color(19, 32, 67));
+        btnAturJadwal.setText("Atur Jadwal");
+        btnAturJadwal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAturJadwalActionPerformed(evt);
             }
         });
 
@@ -238,8 +240,8 @@ public class FormFilm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBatal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAturJadwal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -250,21 +252,21 @@ public class FormFilm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAturJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBatalActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAturJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAturJadwalActionPerformed
         // TODO add your handling code here:
         pilihanMenu();
         FormJadwal formJadwal = new FormJadwal(daftarFilm.pilih(inputNamaFilm.getText()));
@@ -277,7 +279,7 @@ public class FormFilm extends javax.swing.JFrame {
                 setVisible(true);
             }
         });
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAturJadwalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,6 +313,8 @@ public class FormFilm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAturJadwal;
+    private javax.swing.JButton btnBatal;
     private javax.swing.JTextField inputDurasiFilm;
     private javax.swing.JTextField inputGenreFilm;
     private javax.swing.JTextField inputLinkTrailer;
@@ -318,8 +322,6 @@ public class FormFilm extends javax.swing.JFrame {
     private javax.swing.JTextField inputPosterFilm;
     private javax.swing.JTextField inputSinopsisFilm;
     private javax.swing.JTextField inputThumbnail;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

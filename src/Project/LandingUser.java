@@ -32,6 +32,7 @@ public class LandingUser extends LandingPageView {
         this.username = username;
         usernameTxt.setText(username);
         tampilTrailer();
+        setLocationRelativeTo(null);
     }
 
     public LandingUser(String username, DaftarFilm daftarFilm) {
@@ -40,6 +41,7 @@ public class LandingUser extends LandingPageView {
         this.username = username;
         usernameTxt.setText(username);
         tampilTrailer();
+        setLocationRelativeTo(null);
     }
 
     private void tampilTrailer() {

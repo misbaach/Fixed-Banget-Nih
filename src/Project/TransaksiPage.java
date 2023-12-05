@@ -10,6 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Misbach
@@ -30,6 +31,7 @@ public class TransaksiPage extends javax.swing.JFrame {
         this.pilihan = pilihan;
         this.username = username;
         setTampil();
+        setLocationRelativeTo(null);
     }
     
     private void setTampil(){
@@ -311,6 +313,8 @@ public class TransaksiPage extends javax.swing.JFrame {
             user.kurangSaldo(Integer.parseInt(bayarTxt.getText()));
             film.getStudio(studio).beliKursi(jadwal, pilihan);
             this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "saldo tidak cukup");
         }
     }//GEN-LAST:event_btnBayarActionPerformed
 

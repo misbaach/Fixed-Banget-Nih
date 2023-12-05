@@ -5,6 +5,7 @@
 package Project;
 
 import Class.Film;
+import Class.SetButton;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JToggleButton;
@@ -13,7 +14,7 @@ import javax.swing.JToggleButton;
  *
  * @author ASUS
  */
-public class FormJadwal extends javax.swing.JFrame {
+public class FormJadwal extends javax.swing.JFrame implements SetButton{
 
     /**
      * Creates new form FormJadwal
@@ -25,10 +26,11 @@ public class FormJadwal extends javax.swing.JFrame {
         initComponents();
         this.film = film;
         tampilInfo();
-        pilihJadwal();
+        pilihButton();
+        setLocationRelativeTo(null);
     }
 
-    private JToggleButton[] daftarBtnSektor(String sektor) {
+    private JToggleButton[] daftarBtn(String sektor) {
         JToggleButton[] buttons;
 
         if (sektor.equals(today.toString())) {
@@ -43,22 +45,22 @@ public class FormJadwal extends javax.swing.JFrame {
         return buttons;
     }
 
-    private void resetPilihJadwal() {
+    public void disableButton() {
         for (int i = 0; i < 3; i++) {
-            JToggleButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
+            JToggleButton[] buttons = daftarBtn(today.plusDays(i).toString());
             for (JToggleButton button : buttons) {
                 button.setSelected(false);
             }
         }
     }
 
-    private void pilihJadwal() {
+    public void pilihButton() {
         ArrayList<String> jadwalFilmArray = film.getJadwalFilm(film.getNama(), (String) pilihBioskop.getSelectedItem());
         for (String jadwalFilm : jadwalFilmArray) {
             if (jadwalFilm != null) {
                 String[] jadwal = jadwalFilm.split(" ");
                 for (int i = 0; i < 3; i++) {
-                    JToggleButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
+                    JToggleButton[] buttons = daftarBtn(today.plusDays(i).toString());
                     for (JToggleButton button : buttons) {
                         if (jadwal[0].equals(today.plusDays(i).toString()) && jadwal[1].contains(button.getText())) {
                             button.setSelected(true);
@@ -312,9 +314,9 @@ public class FormJadwal extends javax.swing.JFrame {
 
     private void pilihBioskopItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pilihBioskopItemStateChanged
         // TODO add your handling code here:
-        resetPilihJadwal();
+        disableButton();
         tampilInfo();
-        pilihJadwal();
+        pilihButton();
     }//GEN-LAST:event_pilihBioskopItemStateChanged
 
     
@@ -323,7 +325,7 @@ public class FormJadwal extends javax.swing.JFrame {
         film.getStudio((String) pilihBioskop.getSelectedItem()).setHarga(Integer.parseInt(inputHarga.getText()));
         film.getStudio((String) pilihBioskop.getSelectedItem()).setTempat(inputLokasi.getText());
         for (int i = 0; i < 3; i++) {
-            JToggleButton[] buttons = daftarBtnSektor(today.plusDays(i).toString());
+            JToggleButton[] buttons = daftarBtn(today.plusDays(i).toString());
             for (JToggleButton button : buttons) {
                 String jadwal = today.plusDays(i).toString() + " " + button.getText();
                 if (button.isSelected()) {

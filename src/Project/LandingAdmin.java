@@ -7,6 +7,7 @@ package Project;
 import Class.DaftarFilm;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,7 @@ public class LandingAdmin extends LandingPageView {
         initComponents();
         this.username = username;
         usernameTxt.setText(username);
+        setLocationRelativeTo(null);
     }
 
     public LandingAdmin(String username, DaftarFilm daftarFilm) {
@@ -31,6 +33,7 @@ public class LandingAdmin extends LandingPageView {
         initComponents();
         this.username = username;
         usernameTxt.setText(username);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -139,6 +142,9 @@ public class LandingAdmin extends LandingPageView {
                     admin.setVisible(true);
                 }
             });
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "jumlah film maksimal 3");
         }
     }//GEN-LAST:event_btnTambahActionPerformed
 

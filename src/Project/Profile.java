@@ -27,6 +27,7 @@ public class Profile extends javax.swing.JFrame {
         initComponents();
         this.username = username;
         setProfile();
+        setLocationRelativeTo(null);
     }
 
     private void setProfile() {

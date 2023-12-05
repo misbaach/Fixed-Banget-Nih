@@ -6,10 +6,6 @@ package Project;
 
 import Class.DaftarFilm;
 import Class.Film;
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.LocalDate;
 import javax.swing.ImageIcon;
@@ -39,37 +35,75 @@ public class LandingPageView extends javax.swing.JFrame {
         this.daftarFilm = daftarFilm;
         tampilGambar();
     }
-
-    private void filmAwal() {
-        daftarFilm.tambahFilm("a", "nasb", "10", "This is a dynamic text that can be very long and will be wrapped automatically", "Diambang Kematian (3).jpg");
-        daftarFilm.tambahFilm("b", "ljasn", "20", "This is a dynamic text that can be very long and will be wrapped automatically", "Titanic (2).jpg");
-        daftarFilm.tambahFilm("c", "sabdb", "30", "This is a dynamic text that can be very long and will be wrapped automatically", "Susuk (1).jpg");
-        Film satu = daftarFilm.getFilm().get(0);
-        Film dua = daftarFilm.getFilm().get(1);
-        Film tiga = daftarFilm.getFilm().get(2);
-
-        aturStudio(satu);
-        aturStudio(dua);
-        aturStudio(tiga);
-        LocalDate today = LocalDate.now();
-        satu.getStudio("CGV").setHarga(20000);
-        satu.getStudio("XXI").setHarga(30000);
-
-        satu.setJadwal("CGV", today + " 12.00");
-        satu.setJadwal("CGV", today + " 13.30");
-        satu.setJadwal("CGV", today.plusDays(1) + " 10.30");
-        satu.setJadwal("XXI", today + " 10.30");
-        dua.setJadwal("XXI", today + " 12.00");
-
-        satu.setTrailer("https://www.youtube.com/watch?v=CNWdWAK0rOQ", "diambangkematiantrailer.png");
-        dua.setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", "titanicTrailer.png");
-        tiga.setTrailer("https://www.youtube.com/watch?v=6sJRZepIGsk", "susukTrailer.png");
+    
+    private void setFilmAwal(){
+        daftarFilm.tambahFilm("Diambang Kematian", "Horror", "97 menit", 
+                "Hidup seorang perempuan muda bernama Nadia berada di ambang kematian. "
+                        + "Hal ini bisa terjadi karena Nadia ternyata menjadi tumbal "
+                        + "dari pesugihan yang dilakukan oleh ayahnya sendiri. "
+                        + "Pesugihan tersebut ternyata meminta tumbal setiap 10 tahun sekali. ",
+                "Diambang Kematian (3).jpg");
+        daftarFilm.tambahFilm("Titanic", "Romance", "i97 menit",
+                "Pada tahun 1996, seorang pemburu harta karun bernama Brock Lovett "
+                        + "beserta timnya menjelajahi bangkai kapal RMS Titanic untuk "
+                        + "mencari sebuah kalung berlian berharga yang diyakini terkubur "
+                        + "di dasar laut bersama bangkai kapal tersebut.", "Titanic (2).jpg");
+        daftarFilm.tambahFilm("Susuk", "Horror", "102 menit", 
+                "Laras ingin berhenti dari pekerjaannya sebagai PSK dan memperbaiki "
+                        + "hubungan dengan adiknya, Ayu. Namun, sebuah kecelakaan membuat "
+                        + "Laras ditolak oleh kematian dan terus terjebak dalam sakaratul "
+                        + "maut. Tubuh Laras terus hidup, tapi badannya mulai membusuk "
+                        + "seperti mayat. ", "Susuk (1).jpg"); 
     }
 
-    private void aturStudio(Film film) {
-        film.setStudio("CGV", "Surabaya");
-        film.setStudio("XXI", "Surabaya");
-        film.setStudio("iMAX", "Surabaya");
+    private void filmAwal() {
+        setFilmAwal();
+        aturStudio(0);
+        aturStudio(1);
+        aturStudio(2);
+        setHargaTiket();
+        setJadwalTayang(0, "CGV", "XXI", "iMAX");
+        setJadwalTayang(1, "XXI", "iMAX", "CGV");
+        setJadwalTayang(2, "iMAX", "CGV", "XXI");
+        setTrailerFilm();
+    }
+
+    private void aturStudio(int index) {
+        daftarFilm.getFilm().get(index).setStudio("CGV", "Surabaya");
+        daftarFilm.getFilm().get(index).setStudio("XXI", "Surabaya");
+        daftarFilm.getFilm().get(index).setStudio("iMAX", "Surabaya");
+    }
+    
+    private void setTrailerFilm(){
+        daftarFilm.getFilm().get(0).setTrailer("https://www.youtube.com/watch?v=CNWdWAK0rOQ",
+                "diambangkematiantrailer.png");
+        daftarFilm.getFilm().get(1).setTrailer("https://www.youtube.com/watch?v=lP6-9XeEbPc", 
+                "titanicTrailer.png");
+        daftarFilm.getFilm().get(2).setTrailer("https://www.youtube.com/watch?v=6sJRZepIGsk", 
+                "susukTrailer.png");
+    }
+    
+    private void setHargaTiket(){
+        daftarFilm.getFilm().get(0).getStudio("CGV").setHarga(20000);
+        daftarFilm.getFilm().get(0).getStudio("XXI").setHarga(30000);
+        daftarFilm.getFilm().get(0).getStudio("iMAX").setHarga(25000);
+        daftarFilm.getFilm().get(1).getStudio("CGV").setHarga(25000);
+        daftarFilm.getFilm().get(1).getStudio("XXI").setHarga(35000);
+        daftarFilm.getFilm().get(1).getStudio("iMAX").setHarga(20000);
+        daftarFilm.getFilm().get(2).getStudio("CGV").setHarga(25000);
+        daftarFilm.getFilm().get(2).getStudio("XXI").setHarga(30000);
+        daftarFilm.getFilm().get(2).getStudio("iMAX").setHarga(30000);
+    }
+    
+    private void setJadwalTayang(int index, String studio1, String studio2, String studio3){
+        LocalDate today = LocalDate.now();
+        daftarFilm.getFilm().get(index).setJadwal(studio1, today + " 12.00");
+        daftarFilm.getFilm().get(index).setJadwal(studio1, today.plusDays(1) + " 13.30");
+        daftarFilm.getFilm().get(index).setJadwal(studio1, today.plusDays(2) + " 13.30");
+        daftarFilm.getFilm().get(index).setJadwal(studio2, today + " 10.30");
+        daftarFilm.getFilm().get(index).setJadwal(studio2, today.plusDays(1) + " 10.30");
+        daftarFilm.getFilm().get(index).setJadwal(studio3, today.plusDays(1) + " 12.00");
+        daftarFilm.getFilm().get(index).setJadwal(studio3, today.plusDays(2) + " 10.30");
     }
 
     private void tampilGambar() {
